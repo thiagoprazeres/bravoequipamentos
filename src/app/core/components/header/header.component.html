@@ -1,41 +1,41 @@
-<header class="bg-bravo-dark/95 backdrop-blur-md border-b border-white/5 sticky top-0 z-50">
+<header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
   <div class="max-w-7xl mx-auto px-6">
     <div class="flex items-center justify-between h-18">
       <a routerLink="/" class="flex items-center">
-        <img src="https://bravoequipamentos.com/images/logo.png" alt="BRAVO EQUIPAMENTOS" width="160" height="40" fetchpriority="high" loading="eager" class="h-10 w-auto">
+        <img src="https://bravoequipamentos.com/images/logo-p.png" alt="BRAVO EQUIPAMENTOS" width="160" height="40" fetchpriority="high" loading="eager" class="h-10 w-auto">
       </a>
 
       <nav class="hidden md:block">
         <ul class="flex gap-8">
-          <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()" class="text-zinc-400 text-sm font-medium tracking-wide hover:text-white transition-colors duration-200 [&.active]:text-bravo-yellow">Início</a></li>
-          <li><a routerLink="/sobre-a-bravo" routerLinkActive="active" (click)="closeMenu()" class="text-zinc-400 text-sm font-medium tracking-wide hover:text-white transition-colors duration-200 [&.active]:text-bravo-yellow">Sobre</a></li>
-          <li><a routerLink="/containers" routerLinkActive="active" (click)="closeMenu()" class="text-zinc-400 text-sm font-medium tracking-wide hover:text-white transition-colors duration-200 [&.active]:text-bravo-yellow">Containers</a></li>
-          <li><a routerLink="/clientes" routerLinkActive="active" (click)="closeMenu()" class="text-zinc-400 text-sm font-medium tracking-wide hover:text-white transition-colors duration-200 [&.active]:text-bravo-yellow">Clientes</a></li>
+          <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()" class="text-gray-600 text-sm font-medium tracking-wide hover:text-gray-900 transition-colors duration-200 [&.active]:text-bravo-navy">Início</a></li>
+          <li><a routerLink="/sobre-a-bravo" routerLinkActive="active" (click)="closeMenu()" class="text-gray-600 text-sm font-medium tracking-wide hover:text-gray-900 transition-colors duration-200 [&.active]:text-bravo-navy">Sobre</a></li>
+          <li><a routerLink="/containers" routerLinkActive="active" (click)="closeMenu()" class="text-gray-600 text-sm font-medium tracking-wide hover:text-gray-900 transition-colors duration-200 [&.active]:text-bravo-navy">Containers</a></li>
+          <li><a routerLink="/clientes" routerLinkActive="active" (click)="closeMenu()" class="text-gray-600 text-sm font-medium tracking-wide hover:text-gray-900 transition-colors duration-200 [&.active]:text-bravo-navy">Clientes</a></li>
         </ul>
       </nav>
 
       <div class="hidden md:flex items-center gap-4">
-        <a href="tel:+558100000000" class="text-zinc-400 text-sm font-medium hover:text-white transition-colors duration-200">
-          <lucide-icon [img]="Phone" [size]="15" class="inline mr-1.5"></lucide-icon>(81) 9 9999-9999
+        <a href="tel:+558100000000" class="text-gray-600 text-sm font-medium hover:text-gray-900 transition-colors duration-200 flex items-center gap-1.5">
+          <lucide-icon [img]="Phone" [size]="15" class="text-gray-400"></lucide-icon>(81) 9 9999-9999
         </a>
-        <a routerLink="/fale-conosco" class="bg-bravo-yellow text-bravo-dark text-sm font-bold px-5 py-2.5 rounded-md hover:bg-bravo-gold transition-all duration-200 hover:shadow-lg hover:shadow-bravo-yellow/20">
+        <a routerLink="/fale-conosco" class="bg-bravo-yellow text-bravo-navy text-sm font-bold px-5 py-2.5 rounded-md hover:bg-bravo-gold transition-all duration-200 hover:shadow-md hover:shadow-bravo-yellow/30">
           Solicitar Orçamento
         </a>
       </div>
 
-      <button class="md:hidden p-2 text-zinc-400 hover:text-white transition-colors duration-200" (click)="toggleMenu()" aria-label="Toggle menu">
+      <button class="md:hidden p-2 text-gray-500 hover:text-gray-900 transition-colors duration-200" (click)="toggleMenu()" aria-label="Toggle menu">
         <lucide-icon [img]="menuOpen() ? X : Menu" [size]="24"></lucide-icon>
       </button>
     </div>
 
     <nav [class.max-h-screen]="menuOpen()" [class.max-h-0]="!menuOpen()" class="md:hidden overflow-hidden transition-all duration-300 ease-in-out">
-      <ul class="flex flex-col py-4 border-t border-white/5">
-        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()" class="block text-zinc-400 text-sm font-medium py-3 hover:text-white transition-colors duration-200 [&.active]:text-bravo-yellow">Início</a></li>
-        <li><a routerLink="/sobre-a-bravo" routerLinkActive="active" (click)="closeMenu()" class="block text-zinc-400 text-sm font-medium py-3 hover:text-white transition-colors duration-200 [&.active]:text-bravo-yellow">Sobre</a></li>
-        <li><a routerLink="/containers" routerLinkActive="active" (click)="closeMenu()" class="block text-zinc-400 text-sm font-medium py-3 hover:text-white transition-colors duration-200 [&.active]:text-bravo-yellow">Containers</a></li>
-        <li><a routerLink="/clientes" routerLinkActive="active" (click)="closeMenu()" class="block text-zinc-400 text-sm font-medium py-3 hover:text-white transition-colors duration-200 [&.active]:text-bravo-yellow">Clientes</a></li>
+      <ul class="flex flex-col py-4 border-t border-gray-100">
+        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()" class="block text-gray-600 text-sm font-medium py-3 hover:text-gray-900 transition-colors duration-200 [&.active]:text-bravo-navy">Início</a></li>
+        <li><a routerLink="/sobre-a-bravo" routerLinkActive="active" (click)="closeMenu()" class="block text-gray-600 text-sm font-medium py-3 hover:text-gray-900 transition-colors duration-200 [&.active]:text-bravo-navy">Sobre</a></li>
+        <li><a routerLink="/containers" routerLinkActive="active" (click)="closeMenu()" class="block text-gray-600 text-sm font-medium py-3 hover:text-gray-900 transition-colors duration-200 [&.active]:text-bravo-navy">Containers</a></li>
+        <li><a routerLink="/clientes" routerLinkActive="active" (click)="closeMenu()" class="block text-gray-600 text-sm font-medium py-3 hover:text-gray-900 transition-colors duration-200 [&.active]:text-bravo-navy">Clientes</a></li>
         <li class="pt-2">
-          <a routerLink="/fale-conosco" (click)="closeMenu()" class="block w-full text-center bg-bravo-yellow text-bravo-dark text-sm font-bold px-5 py-3 rounded-md">Solicitar Orçamento</a>
+          <a routerLink="/fale-conosco" (click)="closeMenu()" class="block w-full text-center bg-bravo-yellow text-bravo-navy text-sm font-bold px-5 py-3 rounded-md">Solicitar Orçamento</a>
         </li>
       </ul>
     </nav>
