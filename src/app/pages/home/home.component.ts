@@ -142,8 +142,9 @@ export class HomeComponent {
     { name: 'Almoxarifado',      image: 'https://bravoequipamentos.com/images/BR-almoxarifado.jpg' },
     { name: 'Banheiro Coletivo', image: 'https://bravoequipamentos.com/images/BR-banheiro-01.JPG' },
     { name: 'Depósito',          image: 'https://bravoequipamentos.com/images/BR-deposito.jpg' },
-    { name: 'Escritório c/ wc',  image: 'https://bravoequipamentos.com/images/BR-escritorio_com_wc.jpg' },
-    { name: 'Escritório s/ wc',  image: 'https://bravoequipamentos.com/images/BR-escritorio_sem_wc.jpg' },
+    { name: 'Escritório c/ WC',  image: 'https://bravoequipamentos.com/images/BR-escritorio_com_wc.jpg' },
+    { name: 'Escritório s/ WC',  image: 'https://bravoequipamentos.com/images/BR-escritorio_sem_wc.jpg' },
+    { name: 'Stand de Vendas',   image: '/images/BR-stand-de-vendas.jpg' },
     { name: 'Vestiário',         image: 'https://bravoequipamentos.com/images/page4_img6.jpg' }
   ];
 
