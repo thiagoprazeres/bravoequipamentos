@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Title, Meta } from '@angular/platform-browser';
@@ -6,6 +6,7 @@ import { LucideAngularModule, Mail, Phone, MapPin, Clock, Instagram, Facebook } 
 
 @Component({
   selector: 'app-contato',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, FormsModule, LucideAngularModule],
   templateUrl: './contato.component.html'
 })

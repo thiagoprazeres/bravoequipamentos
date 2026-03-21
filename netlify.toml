@@ -5,6 +5,10 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# Allow Netlify Image CDN to optimize images from the origin domain
+[images]
+  remote_images = ["https://bravoequipamentos\\.com/.*"]
+
 # SPA fallback — serve index.html for any route not matched by a static file
 # (handles Angular's RenderMode.Client wildcard routes)
 [[redirects]]

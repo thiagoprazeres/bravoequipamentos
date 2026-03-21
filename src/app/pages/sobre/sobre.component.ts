@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
@@ -6,6 +6,7 @@ import { LucideAngularModule, Award, Users, Clock, CheckCircle2, Target, Eye } f
 
 @Component({
   selector: 'app-sobre',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, RouterLink, LucideAngularModule],
   templateUrl: './sobre.component.html'
 })
