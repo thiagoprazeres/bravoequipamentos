@@ -144,7 +144,6 @@ export class HomeComponent {
     { name: 'Depósito',          image: 'https://bravoequipamentos.com/images/BR-deposito.jpg' },
     { name: 'Escritório c/ WC',  image: 'https://bravoequipamentos.com/images/BR-escritorio_com_wc.jpg' },
     { name: 'Escritório s/ WC',  image: 'https://bravoequipamentos.com/images/BR-escritorio_sem_wc.jpg' },
-    { name: 'Stand de Vendas',   image: '/images/BR-stand-de-vendas.jpg' },
     { name: 'Vestiário',         image: 'https://bravoequipamentos.com/images/page4_img6.jpg' }
   ];
 
@@ -168,22 +167,28 @@ export class HomeComponent {
 
   testimonials = [
     {
-      text: 'Agilidade e profissionalismo impecáveis. O container chegou no dia prometido e em perfeito estado. Recomendo sem hesitar.',
-      author: 'Carlos Menezes',
-      role: 'Gerente de Obras — Construtora Horizonte',
-      rating: 5
+      text: 'Excelente prestação de locação, qualidade e atendimento rápido quando foi preciso. Parabéns!!!',
+      author: 'Marina Buarque',
+      period: '4 anos atrás',
+      rating: 5,
+      avatarUrl: null,
+      avatarInitial: 'M'
     },
     {
-      text: 'A Bravo nos atendeu em menos de 24h. Preço justo, contrato claro e suporte excelente durante toda a obra. Empresa séria.',
-      author: 'Ana Paula Ferreira',
-      role: 'Diretora de Projetos — EngePlan Recife',
-      rating: 5
+      text: 'Lugar fácil localidade, bom fazer locação com ótimos preços.',
+      author: 'Priscila Ms',
+      period: '5 anos atrás',
+      rating: 4,
+      avatarUrl: null,
+      avatarInitial: 'P'
     },
     {
-      text: 'Já é a terceira obra que uso a Bravo. Qualidade constante, equipe atenciosa e entrega sempre no prazo. Parceria consolidada.',
-      author: 'Roberto Alves',
-      role: 'Engenheiro Civil — Multisul Engenharia',
-      rating: 5
+      text: 'Boa.',
+      author: 'José Marcos de Freitas',
+      period: 'um ano atrás',
+      rating: 4,
+      avatarUrl: 'https://lh3.googleusercontent.com/a-/ALV-UjUsyZEbNDEjmTsqPuP3HRFV4CxUjOkHY3dE6tZpy7CSlE1T-dF2AQ=w144-h144-p-rp-mo-ba3-br100',
+      avatarInitial: null
     }
   ];
 

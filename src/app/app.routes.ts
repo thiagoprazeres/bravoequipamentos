@@ -22,6 +22,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/contato/contato.component').then(m => m.ContatoComponent)
   },
   {
+    path: 'stand-de-vendas',
+    loadComponent: () => import('./pages/stand-de-vendas/stand-de-vendas.component').then(m => m.StandDeVendasComponent)
+  },
+  {
     path: '**',
     redirectTo: ''
   }

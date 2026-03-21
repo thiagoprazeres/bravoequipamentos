@@ -1,0 +1,279 @@
+<!-- ══════════════════════════════════════════════════════════════
+     HERO
+     ══════════════════════════════════════════════════════════════ -->
+<section class="relative min-h-screen flex flex-col justify-center overflow-hidden">
+  <!-- Background image -->
+  <div class="absolute inset-0">
+    <img src="/images/stand-exterior-02.jpg" alt="Stand de Vendas Bravo"
+         class="w-full h-full object-cover object-center" fetchpriority="high">
+    <div class="absolute inset-0 bg-linear-to-br from-bravo-navy/90 via-bravo-navy/75 to-bravo-navy/50"></div>
+  </div>
+
+  <!-- Hero content -->
+  <div class="relative z-10 max-w-5xl mx-auto px-6 py-24 text-center">
+    <!-- Badge -->
+    <span class="inline-block bg-bravo-yellow text-bravo-navy text-xs font-black uppercase tracking-widest px-4 py-1.5 rounded-full mb-8">
+      Entrega em até 48h · Recife e Região
+    </span>
+
+    <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-6">
+      Seu Stand de Vendas<br>
+      <span class="text-bravo-yellow">Pronto em Dias</span>,<br>
+      Não em Meses.
+    </h1>
+    <p class="text-white/80 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+      Container adaptado como ponto de atendimento ao cliente — com frente envidraçada, elétrica completa e ar-condicionado. Ideal para lançamentos de empreendimentos.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a [href]="whatsappUrl" target="_blank" rel="noopener noreferrer"
+         class="btn-sheen inline-flex items-center justify-center gap-3 bg-green-500 hover:bg-green-400 text-white font-black text-lg px-10 py-5 rounded-xl transition-all duration-200 hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-green-500/30">
+        <lucide-icon [img]="MessageCircle" [size]="22"></lucide-icon>
+        Quero um Orçamento Agora
+      </a>
+      <a href="tel:+5581999999999"
+         class="inline-flex items-center justify-center gap-3 border-2 border-white/40 hover:border-white text-white font-bold text-lg px-8 py-5 rounded-xl transition-all duration-200 hover:bg-white/10">
+        <lucide-icon [img]="Phone" [size]="20"></lucide-icon>
+        Ligar Agora
+      </a>
+    </div>
+
+    <!-- Trust micro-badges -->
+    <div class="flex flex-wrap gap-6 justify-center mt-12 text-white/60 text-sm">
+      <span class="flex items-center gap-2"><lucide-icon [img]="CheckCircle2" [size]="16" class="text-bravo-yellow"></lucide-icon> Sem obra civil</span>
+      <span class="flex items-center gap-2"><lucide-icon [img]="CheckCircle2" [size]="16" class="text-bravo-yellow"></lucide-icon> Locação ou venda</span>
+      <span class="flex items-center gap-2"><lucide-icon [img]="CheckCircle2" [size]="16" class="text-bravo-yellow"></lucide-icon> +10 anos no mercado</span>
+      <span class="flex items-center gap-2"><lucide-icon [img]="CheckCircle2" [size]="16" class="text-bravo-yellow"></lucide-icon> Personalização inclusa</span>
+    </div>
+  </div>
+
+  <!-- Scroll hint -->
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce">
+    <lucide-icon [img]="ChevronDown" [size]="28" class="text-white/40"></lucide-icon>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     STAT BAR
+     ══════════════════════════════════════════════════════════════ -->
+<section class="bg-bravo-yellow py-6">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div>
+        <p class="text-3xl font-black text-bravo-navy">48h</p>
+        <p class="text-bravo-navy/70 text-sm font-semibold">Prazo de entrega</p>
+      </div>
+      <div>
+        <p class="text-3xl font-black text-bravo-navy">10+</p>
+        <p class="text-bravo-navy/70 text-sm font-semibold">Anos de experiência</p>
+      </div>
+      <div>
+        <p class="text-3xl font-black text-bravo-navy">500+</p>
+        <p class="text-bravo-navy/70 text-sm font-semibold">Projetos entregues</p>
+      </div>
+      <div>
+        <p class="text-3xl font-black text-bravo-navy">0</p>
+        <p class="text-bravo-navy/70 text-sm font-semibold">Obra civil necessária</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     PROBLEMA / SOLUÇÃO
+     ══════════════════════════════════════════════════════════════ -->
+<section class="py-24 bg-white">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <!-- Problema -->
+      <div>
+        <p class="text-red-500 text-sm font-bold uppercase tracking-widest mb-4">O problema tradicional</p>
+        <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-6 leading-tight">
+          Stands convencionais atrasam e encarecem a obra.
+        </h2>
+        <ul class="space-y-4 text-gray-600">
+          <li class="flex items-start gap-3">
+            <span class="mt-1 w-5 h-5 rounded-full bg-red-100 flex items-center justify-center shrink-0">
+              <span class="w-2 h-2 rounded-full bg-red-400 block"></span>
+            </span>
+            Obra civil demora semanas e custa caro
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1 w-5 h-5 rounded-full bg-red-100 flex items-center justify-center shrink-0">
+              <span class="w-2 h-2 rounded-full bg-red-400 block"></span>
+            </span>
+            Estruturas provisórias têm aparência improvisada
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1 w-5 h-5 rounded-full bg-red-100 flex items-center justify-center shrink-0">
+              <span class="w-2 h-2 rounded-full bg-red-400 block"></span>
+            </span>
+            Difícil de remover ou relocar ao final do projeto
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-1 w-5 h-5 rounded-full bg-red-100 flex items-center justify-center shrink-0">
+              <span class="w-2 h-2 rounded-full bg-red-400 block"></span>
+            </span>
+            Licenciamento mais complexo para construções permanentes
+          </li>
+        </ul>
+      </div>
+      <!-- Solução -->
+      <div class="bg-bravo-navy rounded-2xl p-8 text-white">
+        <p class="text-bravo-yellow text-sm font-bold uppercase tracking-widest mb-4">A solução Bravo</p>
+        <h2 class="text-3xl font-black mb-6 leading-tight">
+          Container pronto, bonito e que vai embora com você.
+        </h2>
+        <ul class="space-y-4 text-white/80">
+          <li class="flex items-start gap-3">
+            <lucide-icon [img]="CheckCircle2" [size]="20" class="text-bravo-yellow shrink-0 mt-0.5"></lucide-icon>
+            Entregue e instalado em até 48 horas úteis
+          </li>
+          <li class="flex items-start gap-3">
+            <lucide-icon [img]="CheckCircle2" [size]="20" class="text-bravo-yellow shrink-0 mt-0.5"></lucide-icon>
+            Aparência moderna e profissional desde o dia 1
+          </li>
+          <li class="flex items-start gap-3">
+            <lucide-icon [img]="CheckCircle2" [size]="20" class="text-bravo-yellow shrink-0 mt-0.5"></lucide-icon>
+            Removível e reutilizável em outros empreendimentos
+          </li>
+          <li class="flex items-start gap-3">
+            <lucide-icon [img]="CheckCircle2" [size]="20" class="text-bravo-yellow shrink-0 mt-0.5"></lucide-icon>
+            Classificado como instalação provisória — menos burocracia
+          </li>
+        </ul>
+        <a [href]="whatsappUrl" target="_blank" rel="noopener noreferrer"
+           class="mt-8 btn-sheen inline-flex items-center gap-2 bg-bravo-yellow text-bravo-navy font-black px-6 py-3 rounded-lg hover:bg-bravo-gold transition-all duration-200">
+          <lucide-icon [img]="MessageCircle" [size]="18"></lucide-icon>
+          Pedir orçamento grátis
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     GALERIA
+     ══════════════════════════════════════════════════════════════ -->
+<section class="py-20 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <p class="text-bravo-navy text-sm font-semibold uppercase tracking-widest mb-3">Registro real de obras</p>
+      <h2 class="text-3xl md:text-4xl font-black text-gray-900 scroll-reveal-heading">Veja Stands que já entregamos</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      @for (photo of gallery; track photo.src) {
+        <div class="group relative rounded-2xl overflow-hidden aspect-video md:aspect-square shadow-md">
+          <img [src]="photo.src" [alt]="photo.alt"
+               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+          <div class="absolute inset-0 bg-bravo-navy/0 group-hover:bg-bravo-navy/20 transition-all duration-300"></div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     FEATURES
+     ══════════════════════════════════════════════════════════════ -->
+<section class="py-24 bg-white">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <p class="text-bravo-navy text-sm font-semibold uppercase tracking-widest mb-3">Tudo incluso</p>
+      <h2 class="text-3xl md:text-4xl font-black text-gray-900 scroll-reveal-heading">O que vem no seu Stand</h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      @for (feat of features; track feat.label) {
+        <div class="flex gap-4 p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:border-bravo-yellow hover:shadow-md transition-all duration-300">
+          <div class="w-10 h-10 bg-bravo-yellow/20 rounded-xl flex items-center justify-center shrink-0">
+            <lucide-icon [img]="CheckCircle2" [size]="20" class="text-bravo-navy"></lucide-icon>
+          </div>
+          <div>
+            <p class="font-bold text-gray-900 mb-1">{{ feat.label }}</p>
+            <p class="text-gray-500 text-sm leading-relaxed">{{ feat.detail }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     CTA INTERMEDIÁRIO
+     ══════════════════════════════════════════════════════════════ -->
+<section class="py-20 bg-bravo-navy">
+  <div class="max-w-3xl mx-auto px-6 text-center">
+    <lucide-icon [img]="Zap" [size]="40" class="text-bravo-yellow mx-auto mb-6 block"></lucide-icon>
+    <h2 class="text-3xl md:text-4xl font-black text-white mb-4 leading-tight">
+      Pronto para montar seu stand<br>antes da concorrência?
+    </h2>
+    <p class="text-white/70 text-lg mb-8">
+      Fale agora com nosso time e receba um orçamento personalizado em minutos. Sem enrolação.
+    </p>
+    <a [href]="whatsappUrl" target="_blank" rel="noopener noreferrer"
+       class="btn-sheen inline-flex items-center justify-center gap-3 bg-green-500 hover:bg-green-400 text-white font-black text-xl px-12 py-5 rounded-xl transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl hover:shadow-green-500/30">
+      <lucide-icon [img]="MessageCircle" [size]="24"></lucide-icon>
+      Chamar no WhatsApp
+    </a>
+    <p class="text-white/40 text-sm mt-4">Respondemos em até 15 minutos durante o horário comercial</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     FAQ
+     ══════════════════════════════════════════════════════════════ -->
+<section class="py-24 bg-gray-50">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="text-center mb-14">
+      <p class="text-bravo-navy text-sm font-semibold uppercase tracking-widest mb-3">Dúvidas Frequentes</p>
+      <h2 class="text-3xl md:text-4xl font-black text-gray-900 scroll-reveal-heading">Respostas rápidas para decidir mais rápido</h2>
+    </div>
+    <div class="space-y-3">
+      @for (faq of faqs; track faq.q; let i = $index) {
+        <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden transition-all duration-300"
+             [class.border-bravo-yellow]="openFaq() === i">
+          <button class="w-full flex items-center justify-between px-6 py-5 text-left gap-4"
+                  (click)="toggleFaq(i)"
+                  [attr.aria-expanded]="openFaq() === i">
+            <span class="font-semibold text-gray-900">{{ faq.q }}</span>
+            <lucide-icon [img]="ChevronDown" [size]="20"
+                         class="text-gray-400 shrink-0 transition-transform duration-300"
+                         [style.transform]="openFaq() === i ? 'rotate(180deg)' : 'rotate(0deg)'">
+            </lucide-icon>
+          </button>
+          @if (openFaq() === i) {
+            <div class="px-6 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+              {{ faq.a }}
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     FINAL CTA
+     ══════════════════════════════════════════════════════════════ -->
+<section class="py-28 bg-white relative overflow-hidden">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,var(--tw-gradient-stops))] from-bravo-yellow/10 via-transparent to-transparent pointer-events-none"></div>
+  <div class="relative max-w-3xl mx-auto px-6 text-center">
+    <div class="flex justify-center gap-1 mb-6">
+      @for (s of [1,2,3,4,5]; track s) {
+        <lucide-icon [img]="Star" [size]="24" class="text-bravo-yellow fill-current"></lucide-icon>
+      }
+    </div>
+    <h2 class="text-4xl md:text-5xl font-black text-bravo-navy mb-4 leading-tight scroll-reveal-heading">
+      Mais de 500 obras atendidas<br>em Pernambuco.
+    </h2>
+    <p class="text-gray-500 text-lg mb-10">
+      Junte-se às construtoras e incorporadoras que já confiam na Bravo para montar seus stands — rápido, bonito e no prazo.
+    </p>
+    <a [href]="whatsappUrl" target="_blank" rel="noopener noreferrer"
+       class="btn-sheen inline-flex items-center justify-center gap-3 bg-green-500 hover:bg-green-400 text-white font-black text-xl px-12 py-6 rounded-xl transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl hover:shadow-green-500/30 mb-4">
+      <lucide-icon [img]="MessageCircle" [size]="26"></lucide-icon>
+      Solicitar Orçamento Gratuito
+    </a>
+    <p class="text-gray-400 text-sm">Sem compromisso · Resposta em até 15 min</p>
+  </div>
+</section>
