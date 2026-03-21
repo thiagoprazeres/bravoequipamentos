@@ -1,0 +1,125 @@
+.header {
+  background: #2c2c2c;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 50px;
+  width: auto;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  color: #FFCE11;
+}
+
+.menu-toggle lucide-icon {
+  display: block;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 30px;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  padding: 5px 0;
+  position: relative;
+}
+
+.nav-list a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #FFCE11;
+  transition: width 0.3s ease;
+}
+
+.nav-list a:hover,
+.nav-list a.active {
+  color: #FFCE11;
+}
+
+.nav-list a:hover::after,
+.nav-list a.active::after {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background: #2c2c2c;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .nav.active {
+    max-height: 400px;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 0;
+    padding: 20px;
+  }
+
+  .nav-list li {
+    border-bottom: 1px solid #eee;
+  }
+
+  .nav-list li:last-child {
+    border-bottom: none;
+  }
+
+  .nav-list a {
+    display: block;
+    padding: 15px 0;
+  }
+}

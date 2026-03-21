@@ -1,3 +1,52 @@
-/* You can add global styles to this file, and also import other style files */
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @import 'tailwindcss';
+
+@theme {
+  --color-bravo-yellow: #FFCE11;
+  --color-bravo-gold: #e6b800;
+  --color-bravo-orange: #f26522;
+  --color-bravo-orange-light: #f89d30;
+  --color-bravo-dark: #0f0f0f;
+  --color-bravo-dark-2: #1a1a1a;
+  --color-bravo-dark-3: #222222;
+  --color-bravo-gray: #6b7280;
+  --color-bravo-gray-light: #f4f4f5;
+  --color-bravo-muted: #a1a1aa;
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    color: #e4e4e7;
+    background: #0f0f0f;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+
+  h1, h2, h3, h4 {
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}

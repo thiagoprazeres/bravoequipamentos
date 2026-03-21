@@ -1,0 +1,58 @@
+<footer class="bg-bravo-dark-2 border-t border-white/5 mt-auto">
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div>
+        <img src="https://bravoequipamentos.com/images/logo.png" alt="BRAVO EQUIPAMENTOS" class="h-10 w-auto mb-5">
+        <p class="text-zinc-500 text-sm leading-relaxed max-w-xs mb-6">Referência em locação e venda de containers em Recife e Região Metropolitana de Pernambuco desde 2011.</p>
+        <div class="flex items-center gap-3">
+          <a href="https://www.instagram.com/bravoequipamentospe/" target="_blank" rel="noopener noreferrer"
+             aria-label="Instagram da Bravo Equipamentos"
+             class="w-9 h-9 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-zinc-500 hover:text-bravo-yellow hover:border-bravo-yellow/40 hover:bg-bravo-yellow/5 transition-all duration-200">
+            <lucide-icon [img]="Instagram" [size]="16"></lucide-icon>
+          </a>
+          <a href="https://www.facebook.com/bravoequipamentospe" target="_blank" rel="noopener noreferrer"
+             aria-label="Facebook da Bravo Equipamentos"
+             class="w-9 h-9 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-zinc-500 hover:text-bravo-yellow hover:border-bravo-yellow/40 hover:bg-bravo-yellow/5 transition-all duration-200">
+            <lucide-icon [img]="Facebook" [size]="16"></lucide-icon>
+          </a>
+          <a href="https://maps.app.goo.gl/6B4oUBWYiBHz9Nsn7" target="_blank" rel="noopener noreferrer"
+             aria-label="Localização no Google Maps"
+             class="w-9 h-9 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-zinc-500 hover:text-bravo-yellow hover:border-bravo-yellow/40 hover:bg-bravo-yellow/5 transition-all duration-200">
+            <lucide-icon [img]="MapPin" [size]="16"></lucide-icon>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-white font-semibold text-sm uppercase tracking-widest mb-5">Navegação</h4>
+        <ul class="space-y-3">
+          <li><a routerLink="/" class="text-zinc-500 text-sm hover:text-bravo-yellow transition-colors duration-200">Início</a></li>
+          <li><a routerLink="/sobre-a-bravo" class="text-zinc-500 text-sm hover:text-bravo-yellow transition-colors duration-200">Sobre Nós</a></li>
+          <li><a routerLink="/containers" class="text-zinc-500 text-sm hover:text-bravo-yellow transition-colors duration-200">Containers</a></li>
+          <li><a routerLink="/clientes" class="text-zinc-500 text-sm hover:text-bravo-yellow transition-colors duration-200">Clientes</a></li>
+          <li><a routerLink="/fale-conosco" class="text-zinc-500 text-sm hover:text-bravo-yellow transition-colors duration-200">Fale Conosco</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-semibold text-sm uppercase tracking-widest mb-5">Contato</h4>
+        <ul class="space-y-3">
+          <li>
+            <a href="mailto:contato@bravoequipamentos.com" class="text-zinc-500 text-sm hover:text-bravo-yellow transition-colors duration-200">
+              contato&#64;bravoequipamentos.com
+            </a>
+          </li>
+          <li><span class="text-zinc-500 text-sm">Recife / PE — Brasil</span></li>
+        </ul>
+        <a routerLink="/fale-conosco" class="inline-flex items-center gap-2 mt-6 bg-bravo-yellow text-bravo-dark text-sm font-bold px-5 py-2.5 rounded-md hover:bg-bravo-gold transition-all duration-200">
+          Solicitar Orçamento
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-zinc-600 text-xs">© {{ currentYear }} Bravo Equipamentos. Todos os direitos reservados.</p>
+      <p class="text-zinc-600 text-xs">CNPJ: 00.000.000/0001-00</p>
+    </div>
+  </div>
+</footer>

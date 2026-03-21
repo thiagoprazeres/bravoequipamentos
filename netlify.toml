@@ -1,0 +1,30 @@
+[build]
+  command = "ng build --configuration production"
+  publish = "dist/bravoequipamentos/browser"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# SPA fallback — serve index.html for any route not matched by a static file
+# (handles Angular's RenderMode.Client wildcard routes)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Cache immutable hashed assets (JS/CSS bundles) for 1 year
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Do not cache HTML pages — always revalidate
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
