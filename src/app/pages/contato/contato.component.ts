@@ -1,4 +1,4 @@
-import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Title, Meta } from '@angular/platform-browser';
@@ -28,6 +28,8 @@ export class ContatoComponent {
   readonly Clock = Clock;
   readonly Instagram = Instagram;
   readonly Facebook = Facebook;
+  readonly status = signal<'idle' | 'loading' | 'success' | 'error'>('idle');
+
   formData = {
     name: '',
     email: '',
@@ -46,9 +48,23 @@ export class ContatoComponent {
   };
 
   onSubmit() {
-    console.log('Form submitted:', this.formData);
-    alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-    this.resetForm();
+    this.status.set('loading');
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({
+        'form-name': 'contato',
+        name:    this.formData.name,
+        email:   this.formData.email,
+        phone:   this.formData.phone,
+        message: this.formData.message,
+      }).toString(),
+    })
+      .then(() => {
+        this.status.set('success');
+        this.resetForm();
+      })
+      .catch(() => this.status.set('error'));
   }
 
   resetForm() {
