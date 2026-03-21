@@ -5,13 +5,16 @@
     <div class="absolute top-0 left-0 w-96 h-96 bg-bravo-yellow/10 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
     <div class="absolute bottom-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
     <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
-      <img src="logos/logo-fundo_branco.svg" alt="BRAVO EQUIPAMENTOS" width="200" height="50" class="h-12 w-auto mx-auto mb-8 block" loading="eager">
-      <div class="inline-flex items-center gap-2 bg-white/10 border border-white/25 text-white text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-8">
-        <span class="w-1.5 h-1.5 rounded-full bg-bravo-yellow inline-block"></span>
+      <img src="logos/logo-fundo_branco.svg" alt="BRAVO EQUIPAMENTOS" width="200" height="50" class="h-12 w-auto mx-auto mb-8 block animate-fade-in" loading="eager">
+      <div class="inline-flex items-center gap-2 bg-white/10 border border-white/25 text-white text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-8 animate-fade-in-up [animation-delay:150ms]">
+        <span class="relative flex w-1.5 h-1.5">
+          <span class="animate-ping absolute inline-flex w-full h-full rounded-full bg-bravo-yellow opacity-75"></span>
+          <span class="relative inline-flex rounded-full w-1.5 h-1.5 bg-bravo-yellow"></span>
+        </span>
         Locação · Venda · Projetos Especiais
       </div>
-      <h1 class="text-5xl md:text-7xl font-black leading-none tracking-tight mb-6 text-white">Nosso <span class="text-bravo-yellow">Portfólio</span></h1>
-      <p class="text-xl text-white/70 max-w-2xl mx-auto">Containers habitáveis de alto padrão para cada necessidade da sua obra. Todos inspecionados e prontos para entrega.</p>
+      <h1 class="text-5xl md:text-7xl font-black leading-none tracking-tight mb-6 text-white animate-fade-in-up [animation-delay:300ms]">Nosso <span class="text-bravo-yellow">Portfólio</span></h1>
+      <p class="text-xl text-white/70 max-w-2xl mx-auto animate-fade-in-up [animation-delay:450ms]">Containers habitáveis de alto padrão para cada necessidade da sua obra. Todos inspecionados e prontos para entrega.</p>
     </div>
   </section>
 
@@ -38,11 +41,11 @@
   <!-- OVERVIEW IMAGE -->
   <section class="py-16 bg-white">
     <div class="max-w-5xl mx-auto px-6">
-      <div class="text-center mb-8">
+      <div class="text-center mb-8 scroll-in">
         <p class="text-bravo-navy text-sm font-semibold uppercase tracking-widest mb-3">Linha Completa</p>
         <h2 class="text-3xl md:text-4xl font-black text-gray-900">Conheça Nossas Soluções</h2>
       </div>
-      <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+      <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100 scroll-in">
         <img src="https://bravoequipamentos.com/images/005.png" alt="Linha completa de containers Bravo Equipamentos" class="w-full h-auto object-contain" loading="lazy">
       </div>
     </div>
@@ -51,13 +54,13 @@
   <!-- CATALOG GRID -->
   <section class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-16">
+      <div class="text-center mb-16 scroll-in">
         <p class="text-bravo-navy text-sm font-semibold uppercase tracking-widest mb-3">Catálogo Completo</p>
         <h2 class="text-4xl md:text-5xl font-black text-gray-900">Escolha o Container<br>Ideal para Sua Obra</h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div *ngFor="let container of containers" class="group bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:border-bravo-yellow hover:shadow-lg hover:shadow-bravo-yellow/10 transition-all duration-300 hover:-translate-y-1">
+        <div *ngFor="let container of containers" class="group bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:border-bravo-yellow hover:shadow-lg hover:shadow-bravo-yellow/10 transition-all duration-300 hover:-translate-y-1 scroll-in">
           <div class="relative h-64 bg-gray-100 overflow-hidden">
             <img [src]="container.image" [alt]="container.name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
             <button (click)="openLayout(container.name, container.layout)"
@@ -91,14 +94,14 @@
   <section class="py-20 bg-gray-50 border-y border-gray-200">
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-200">
-        <div class="text-center p-10">
+        <div class="text-center p-10 scroll-in">
           <div class="w-14 h-14 bg-bravo-yellow/15 rounded-2xl flex items-center justify-center mx-auto mb-4">
             <lucide-icon [img]="Check" [size]="24" class="text-bravo-navy"></lucide-icon>
           </div>
           <h3 class="text-lg font-bold text-gray-900 mb-2">Qualidade Garantida</h3>
           <p class="text-gray-500 text-sm leading-relaxed">Todos os containers passam por rigorosa manutenção e limpeza antes da entrega.</p>
         </div>
-        <div class="text-center p-10">
+        <div class="text-center p-10 scroll-in">
           <div class="w-14 h-14 bg-bravo-yellow/15 rounded-2xl flex items-center justify-center mx-auto mb-4">
             <lucide-icon [img]="Zap" [size]="24" class="text-bravo-navy"></lucide-icon>
           </div>
