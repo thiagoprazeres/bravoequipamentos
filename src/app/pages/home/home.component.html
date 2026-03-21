@@ -10,7 +10,7 @@
 
       <!-- Left: text -->
       <div>
-        <img src="logos/logo-fundo_branco.svg" alt="BRAVO EQUIPAMENTOS" width="200" height="50" class="h-14 w-auto mb-10 block animate-fade-in" loading="eager">
+        <app-logo-anim class="mb-10" height="3.5rem" bg="#0B2246" [delay]="0.3" />
         <div class="inline-flex items-center gap-2 bg-white/10 border border-white/25 text-white text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-8 animate-fade-in-up [animation-delay:150ms]">
           <span class="relative flex w-1.5 h-1.5">
             <span class="animate-ping absolute inline-flex w-full h-full rounded-full bg-bravo-yellow opacity-75"></span>
@@ -30,8 +30,8 @@
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 animate-fade-in-up [animation-delay:550ms]">
-          <a routerLink="/fale-conosco"
-             class="group flex items-center gap-3 bg-bravo-yellow text-bravo-navy font-bold text-base px-8 py-4 rounded-lg hover:bg-bravo-gold transition-all duration-200 hover:shadow-xl hover:shadow-bravo-yellow/30 hover:-translate-y-0.5">
+          <a #magneticCta routerLink="/fale-conosco"
+             class="btn-sheen group flex items-center gap-3 bg-bravo-yellow text-bravo-navy font-bold text-base px-8 py-4 rounded-lg hover:bg-bravo-gold transition-all duration-200 hover:shadow-xl hover:shadow-bravo-yellow/30 hover:-translate-y-0.5">
             Solicitar Orçamento Gratuito
             <lucide-icon [img]="ArrowRight" [size]="18" class="group-hover:translate-x-1 transition-transform duration-200"></lucide-icon>
           </a>
@@ -51,7 +51,7 @@
 
       <!-- Right: photo -->
       <div class="hidden lg:flex items-center justify-center animate-slide-in-right [animation-delay:400ms]">
-        <div class="relative w-full max-w-lg">
+        <div #heroPhoto class="relative w-full max-w-lg">
           <div class="absolute -inset-4 bg-bravo-yellow/10 rounded-2xl blur-2xl"></div>
           <img src="https://bravoequipamentos.com/images/005.png"
                alt="Containers Bravo Equipamentos"
@@ -72,9 +72,11 @@
   ═══════════════════════════════════════════ -->
   <section class="bg-bravo-yellow">
     <div class="max-w-7xl mx-auto px-6 py-8">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div #statsGrid class="grid grid-cols-2 md:grid-cols-4 gap-6">
         <div *ngFor="let stat of stats" class="text-center scroll-in">
-          <div class="text-4xl font-black text-bravo-navy leading-none mb-1">{{ stat.value }}</div>
+          <div class="stat-counter text-4xl font-black text-bravo-navy leading-none mb-1"
+               [attr.data-count-end]="stat.countEnd"
+               [attr.data-count-suffix]="stat.countSuffix">{{ stat.value }}</div>
           <div class="text-sm font-medium text-bravo-navy/60 uppercase tracking-wide">{{ stat.label }}</div>
         </div>
       </div>
@@ -88,12 +90,12 @@
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-16 scroll-in">
         <p class="text-bravo-navy text-sm font-semibold uppercase tracking-widest mb-3">O Que Fazemos</p>
-        <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">Soluções Completas<br>em Containers</h2>
+        <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-4 scroll-reveal-heading">Soluções Completas<br>em Containers</h2>
         <p class="text-gray-500 text-lg max-w-xl mx-auto">Do planejamento à entrega, cobrimos todas as necessidades da sua obra.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div *ngFor="let service of services" class="relative group bg-white border border-gray-200 rounded-2xl p-8 hover:border-bravo-yellow hover:shadow-lg hover:shadow-bravo-yellow/10 transition-all duration-300 hover:-translate-y-1 shadow-sm scroll-in">
+      <div #servicesGrid class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div *ngFor="let service of services" class="relative group bg-white border border-gray-200 rounded-2xl p-8 hover:border-bravo-yellow hover:shadow-lg hover:shadow-bravo-yellow/10 transition-all duration-300 hover:-translate-y-1 shadow-sm">
           <div *ngIf="service.badge" class="absolute top-6 right-6 bg-bravo-yellow text-bravo-navy text-xs font-bold px-3 py-1 rounded-full">
             {{ service.badge }}
           </div>
@@ -118,7 +120,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div class="scroll-in-left">
           <p class="text-bravo-navy text-sm font-semibold uppercase tracking-widest mb-3">Por Que a Bravo?</p>
-          <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-6 leading-tight">Mais que locação —<br>uma parceria<br>de confiança</h2>
+          <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-6 leading-tight scroll-reveal-heading">Mais que locação —<br>uma parceria<br>de confiança</h2>
           <p class="text-gray-600 text-lg leading-relaxed mb-8">Há mais de 10 anos no mercado de Recife, a Bravo Equipamentos se consolidou como a escolha de construtoras e engenheiros que não abrem mão de qualidade e pontualidade.</p>
           <a routerLink="/sobre-a-bravo" class="inline-flex items-center gap-2 text-gray-900 font-semibold border-b border-gray-300 pb-1 hover:border-bravo-navy hover:text-bravo-navy transition-all duration-200">
             Nossa história <lucide-icon [img]="ArrowRight" [size]="16"></lucide-icon>
@@ -145,13 +147,13 @@
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-16 scroll-in">
         <p class="text-bravo-navy text-sm font-semibold uppercase tracking-widest mb-3">Nosso Portfólio</p>
-        <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">Containers para Cada<br>Necessidade</h2>
+        <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-4 scroll-reveal-heading">Containers para Cada<br>Necessidade</h2>
         <p class="text-gray-500 text-lg max-w-xl mx-auto">Almoxarifados, banheiros, escritórios, vestiários e muito mais. Todos em excelente estado.</p>
       </div>
 
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
+      <div #catalogGrid class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
         <a *ngFor="let type of containerTypes" routerLink="/containers"
-           class="group bg-white border border-gray-200 rounded-xl overflow-hidden hover:border-bravo-yellow hover:shadow-md transition-all duration-300 hover:-translate-y-1 block shadow-sm scroll-in">
+           class="group bg-white border border-gray-200 rounded-xl overflow-hidden hover:border-bravo-yellow hover:shadow-md transition-all duration-300 hover:-translate-y-1 block shadow-sm">
           <div class="aspect-video bg-gray-100 overflow-hidden">
             <img [src]="type.image" [alt]="type.name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           </div>
@@ -200,7 +202,7 @@
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-16 scroll-in">
         <p class="text-bravo-navy text-sm font-semibold uppercase tracking-widest mb-3">Processo Simples</p>
-        <h2 class="text-4xl md:text-5xl font-black text-gray-900">Do Pedido à Entrega<br>em 3 Etapas</h2>
+        <h2 class="text-4xl md:text-5xl font-black text-gray-900 scroll-reveal-heading">Do Pedido à Entrega<br>em 3 Etapas</h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
@@ -216,7 +218,7 @@
 
       <div class="text-center mt-16">
         <a routerLink="/fale-conosco"
-           class="inline-flex items-center gap-3 bg-bravo-yellow text-bravo-navy font-bold px-10 py-5 rounded-lg text-lg hover:bg-bravo-gold transition-all duration-200 hover:shadow-xl hover:shadow-bravo-yellow/30 hover:-translate-y-0.5">
+           class="btn-sheen inline-flex items-center gap-3 bg-bravo-yellow text-bravo-navy font-bold px-10 py-5 rounded-lg text-lg hover:bg-bravo-gold transition-all duration-200 hover:shadow-xl hover:shadow-bravo-yellow/30 hover:-translate-y-0.5">
           Começar Agora
           <lucide-icon [img]="ArrowRight" [size]="20"></lucide-icon>
         </a>
@@ -231,11 +233,11 @@
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-16 scroll-in">
         <p class="text-bravo-navy text-sm font-semibold uppercase tracking-widest mb-3">Depoimentos</p>
-        <h2 class="text-4xl md:text-5xl font-black text-gray-900">O Que Nossos Clientes<br>Dizem Sobre Nós</h2>
+        <h2 class="text-4xl md:text-5xl font-black text-gray-900 scroll-reveal-heading">O Que Nossos Clientes<br>Dizem Sobre Nós</h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div *ngFor="let t of testimonials" class="bg-white border border-gray-200 rounded-2xl p-8 flex flex-col shadow-sm hover:shadow-md hover:border-bravo-yellow transition-all duration-300 scroll-in">
+      <div #testimonialsGrid class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div *ngFor="let t of testimonials" class="bg-white border border-gray-200 rounded-2xl p-8 flex flex-col shadow-sm hover:shadow-md hover:border-bravo-yellow transition-all duration-300">
           <div class="flex gap-1 mb-5">
             <lucide-icon *ngFor="let s of [1,2,3,4,5]" [img]="Star" [size]="16" class="text-bravo-navy"></lucide-icon>
           </div>
@@ -318,7 +320,7 @@
             </div>
           </div>
           <a href="https://www.google.com/maps/search/Bravo+Equipamentos+CONTAINERS+Recife+PE" target="_blank" rel="noopener noreferrer"
-             class="inline-flex items-center gap-2 mt-8 bg-bravo-yellow text-bravo-navy text-sm font-bold px-5 py-2.5 rounded-md hover:bg-bravo-gold transition-all duration-200">
+             class="btn-sheen inline-flex items-center gap-2 mt-8 bg-bravo-yellow text-bravo-navy text-sm font-bold px-5 py-2.5 rounded-md hover:bg-bravo-gold transition-all duration-200">
             <lucide-icon [img]="MapPin" [size]="15"></lucide-icon>
             Abrir no Google Maps
           </a>
@@ -348,7 +350,7 @@
       <div class="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-bravo-navy -translate-x-1/3 translate-y-1/3"></div>
     </div>
     <div class="max-w-4xl mx-auto px-6 text-center relative z-10 scroll-in">
-      <h2 class="text-4xl md:text-6xl font-black text-bravo-navy mb-6 leading-tight">
+      <h2 class="text-4xl md:text-6xl font-black text-bravo-navy mb-6 leading-tight scroll-reveal-heading">
         Pronto para Agilizar<br>Sua Obra?
       </h2>
       <p class="text-bravo-navy/70 text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
@@ -356,7 +358,7 @@
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a routerLink="/fale-conosco"
-           class="flex items-center justify-center gap-3 bg-bravo-navy text-white font-bold text-lg px-10 py-5 rounded-lg hover:bg-bravo-navy-2 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-2xl">
+           class="btn-sheen flex items-center justify-center gap-3 bg-bravo-navy text-white font-bold text-lg px-10 py-5 rounded-lg hover:bg-bravo-navy-2 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-2xl">
           <lucide-icon [img]="Phone" [size]="20"></lucide-icon>
           Solicitar Orçamento
         </a>

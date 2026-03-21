@@ -1,4 +1,6 @@
-import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy, afterNextRender, ElementRef, viewChild } from '@angular/core';
+import { LogoAnimComponent } from '../../core/components/logo-anim/logo-anim.component';
+import { GsapService } from '../../core/services/gsap.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
@@ -12,12 +14,20 @@ import {
 @Component({
   selector: 'app-home',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, RouterLink, LucideAngularModule],
+  imports: [CommonModule, RouterLink, LucideAngularModule, LogoAnimComponent],
   templateUrl: './home.component.html'
 })
 export class HomeComponent {
-  private readonly title = inject(Title);
-  private readonly meta = inject(Meta);
+  private readonly title   = inject(Title);
+  private readonly meta    = inject(Meta);
+  private readonly gsap    = inject(GsapService);
+
+  private readonly heroPhoto        = viewChild<ElementRef>('heroPhoto');
+  private readonly magneticCta      = viewChild<ElementRef>('magneticCta');
+  private readonly statsGrid        = viewChild<ElementRef>('statsGrid');
+  private readonly servicesGrid     = viewChild<ElementRef>('servicesGrid');
+  private readonly catalogGrid      = viewChild<ElementRef>('catalogGrid');
+  private readonly testimonialsGrid = viewChild<ElementRef>('testimonialsGrid');
 
   constructor() {
     this.title.setTitle('Bravo Equipamentos | Locação e Venda de Containers em Recife');
@@ -25,6 +35,38 @@ export class HomeComponent {
     this.meta.updateTag({ property: 'og:title', content: 'Bravo Equipamentos | Containers em Recife' });
     this.meta.updateTag({ property: 'og:description', content: 'Containers para locação e venda em Recife e PE. Entrega rápida e preço justo.' });
     this.meta.updateTag({ property: 'og:url', content: 'https://bravoequipamentos.com/' });
+
+    afterNextRender(() => this.#initMotion());
+  }
+
+  #initMotion(): void {
+    // ── Hero photo parallax ──────────────────────────────────────────────
+    const photoWrap = this.heroPhoto()?.nativeElement as HTMLElement | undefined;
+    if (photoWrap) this.gsap.parallax(photoWrap, 0.18);
+
+    // ── Primary CTA magnetic hover ───────────────────────────────────────
+    const ctaEl = this.magneticCta()?.nativeElement as HTMLElement | undefined;
+    if (ctaEl) this.gsap.magneticHover(ctaEl, 0.3);
+
+    // ── Stats count-up ───────────────────────────────────────────────────
+    const statsEl = this.statsGrid()?.nativeElement as HTMLElement | undefined;
+    if (statsEl) {
+      statsEl.querySelectorAll<HTMLElement>('.stat-counter').forEach(el => {
+        const end    = Number(el.dataset['countEnd']    ?? 0);
+        const suffix = String(el.dataset['countSuffix'] ?? '');
+        this.gsap.countUp(el, end, { suffix });
+      });
+    }
+
+    // ── GSAP stagger grids (replaces CSS scroll-in on individual cards) ──
+    const staggerGrid = (refEl: HTMLElement | undefined) => {
+      if (!refEl) return;
+      const cards = Array.from(refEl.querySelectorAll<HTMLElement>(':scope > *'));
+      this.gsap.staggerReveal(cards, refEl);
+    };
+    staggerGrid(this.servicesGrid()?.nativeElement);
+    staggerGrid(this.catalogGrid()?.nativeElement);
+    staggerGrid(this.testimonialsGrid()?.nativeElement);
   }
 
   readonly ShoppingCart = ShoppingCart;
@@ -46,10 +88,10 @@ export class HomeComponent {
   readonly ClipboardCheck = ClipboardCheck;
 
   stats = [
-    { value: '10+', label: 'Anos de Experiência' },
-    { value: '500+', label: 'Projetos Entregues' },
-    { value: '100%', label: 'Taxa de Satisfação' },
-    { value: '24h', label: 'Tempo de Resposta' },
+    { value: '10+',  label: 'Anos de Experiência', countEnd: 10,  countSuffix: '+' },
+    { value: '500+', label: 'Projetos Entregues',   countEnd: 500, countSuffix: '+' },
+    { value: '100%', label: 'Taxa de Satisfação',   countEnd: 100, countSuffix: '%' },
+    { value: '24h',  label: 'Tempo de Resposta',    countEnd: 24,  countSuffix: 'h' },
   ];
 
   services = [

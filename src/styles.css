@@ -52,6 +52,85 @@
   animation-range: entry 0% entry 35%;
 }
 
+/* ── Button sheen — hover shimmer that sweeps across any button ────────── */
+.btn-sheen {
+  position: relative;
+  overflow: hidden;
+}
+.btn-sheen::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 65%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent);
+  transform: skewX(-18deg);
+  pointer-events: none;
+  transition: none;
+}
+.btn-sheen:hover::after {
+  left: 140%;
+  transition: left 0.52s ease;
+}
+
+/* ── Heading clip-reveal — wrap h2 text with .hr-wrap > .hr-inner ──────── */
+.hr-wrap { overflow: hidden; display: block; }
+.hr-inner {
+  display: block;
+  animation: hr-slide linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 28%;
+}
+@keyframes hr-slide {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* ── Premium section heading reveal (cinematic: skew + blur) ────────────── */
+.scroll-reveal-heading {
+  animation: heading-reveal linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 22%;
+}
+@keyframes heading-reveal {
+  from { opacity: 0; transform: translateY(36px) skewY(-1.5deg); filter: blur(6px); }
+  to   { opacity: 1; transform: translateY(0)    skewY(0deg);    filter: blur(0px); }
+}
+
+/* ── Page route fade ────────────────────────────────────────────────────── */
+@keyframes page-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.page-enter { animation: page-in 0.35s ease-out both; }
+
+/* ── Smooth horizontal marquee ticker ──────────────────────────────────── */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── Scroll progress bar (gold, fixed top) ──────────────────────────────── */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2.5px;
+  background: #FECE10;
+  z-index: 9999;
+  box-shadow: 0 0 8px rgba(254,206,16,.6);
+  transition: width 0.05s linear;
+  pointer-events: none;
+}
+
 @layer base {
   * {
     margin: 0;

@@ -1,5 +1,6 @@
+<div class="scroll-progress" [style.width.%]="scrollPct()" aria-hidden="true"></div>
 <app-header />
-<main class="main-content">
+<main class="main-content" [class.page-enter]="pageEnter()">
   <router-outlet />
 </main>
 <app-footer />
