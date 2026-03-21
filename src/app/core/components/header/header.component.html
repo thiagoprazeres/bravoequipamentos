@@ -1,6 +1,10 @@
 <header class="bg-bravo-yellow border-b border-bravo-gold sticky top-0 z-50 shadow-sm">
   <div class="max-w-7xl mx-auto px-6">
     <div class="flex items-center justify-between h-18">
+      <a routerLink="/" (click)="closeMenu()" aria-label="Bravo Equipamentos — início" class="shrink-0">
+        <img src="logos/simbolo-navy.svg" alt="Bravo" class="h-9 w-auto">
+      </a>
+
       <nav class="hidden md:block">
         <ul class="flex gap-8">
           <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()" class="text-bravo-navy text-sm font-medium tracking-wide hover:text-bravo-navy/70 transition-colors duration-200 [&.active]:font-bold">Início</a></li>

@@ -97,12 +97,12 @@ export class HomeComponent {
   ];
 
   containerTypes = [
-    { name: 'Almoxarifado', image: 'https://bravoequipamentos.com/images/Almoxarifado.png' },
-    { name: 'Banheiro Coletivo', image: 'https://bravoequipamentos.com/images/Banheiro-coletivo.png' },
-    { name: 'Depósito', image: 'https://bravoequipamentos.com/images/Deposito-porta-dupla.png' },
-    { name: 'Escritório c/ wc', image: 'https://bravoequipamentos.com/images/Escritorio-com-banheiro.png' },
-    { name: 'Escritório s/ wc', image: 'https://bravoequipamentos.com/images/Escritorio-sem-banheiro.png' },
-    { name: 'Vestiário', image: 'https://bravoequipamentos.com/images/Vestiario.png' }
+    { name: 'Almoxarifado',      image: 'https://bravoequipamentos.com/images/BR-almoxarifado.jpg' },
+    { name: 'Banheiro Coletivo', image: 'https://bravoequipamentos.com/images/BR-banheiro-01.JPG' },
+    { name: 'Depósito',          image: 'https://bravoequipamentos.com/images/BR-deposito.jpg' },
+    { name: 'Escritório c/ wc',  image: 'https://bravoequipamentos.com/images/BR-escritorio_com_wc.jpg' },
+    { name: 'Escritório s/ wc',  image: 'https://bravoequipamentos.com/images/BR-escritorio_sem_wc.jpg' },
+    { name: 'Vestiário',         image: 'https://bravoequipamentos.com/images/page4_img6.jpg' }
   ];
 
   steps = [

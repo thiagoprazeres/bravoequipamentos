@@ -3,44 +3,58 @@
   <!-- ═══════════════════════════════════════════
        HERO
   ═══════════════════════════════════════════ -->
-  <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-bravo-navy">
-    <div class="absolute inset-0 bg-cover bg-center opacity-15" style="background-image: url('https://bravoequipamentos.com/images/002.jpg');"></div>
-    <div class="absolute inset-0 bg-linear-to-br from-bravo-navy via-bravo-navy/95 to-bravo-navy/80"></div>
+  <section class="relative min-h-screen flex items-center overflow-hidden bg-bravo-navy">
+    <div class="absolute inset-0 bg-linear-to-br from-bravo-navy via-bravo-navy/98 to-bravo-navy/90"></div>
 
-    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center py-24">
-      <img src="logos/logo-fundo_branco.svg" alt="BRAVO EQUIPAMENTOS" width="200" height="50" class="h-14 w-auto mx-auto mb-10 block" loading="eager">
-      <div class="inline-flex items-center gap-2 bg-white/10 border border-white/25 text-white text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-8">
-        <span class="w-1.5 h-1.5 rounded-full bg-bravo-yellow inline-block"></span>
-        Recife · Desde 2011 · Referência em Pernambuco
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+      <!-- Left: text -->
+      <div>
+        <img src="logos/logo-fundo_branco.svg" alt="BRAVO EQUIPAMENTOS" width="200" height="50" class="h-14 w-auto mb-10 block" loading="eager">
+        <div class="inline-flex items-center gap-2 bg-white/10 border border-white/25 text-white text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-8">
+          <span class="w-1.5 h-1.5 rounded-full bg-bravo-yellow inline-block"></span>
+          Recife · Desde 2011 · Referência em Pernambuco
+        </div>
+
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-black leading-none tracking-tight mb-6 text-white">
+          Containers de<br>
+          <span class="text-bravo-yellow">Alto Padrão</span><br>
+          para Sua Obra
+        </h1>
+
+        <p class="text-xl text-white/70 max-w-xl mb-12 leading-relaxed font-light">
+          Locação, venda e projetos especiais. Entrega rápida, contratos transparentes e suporte técnico especializado.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a routerLink="/fale-conosco"
+             class="group flex items-center gap-3 bg-bravo-yellow text-bravo-navy font-bold text-base px-8 py-4 rounded-lg hover:bg-bravo-gold transition-all duration-200 hover:shadow-xl hover:shadow-bravo-yellow/30 hover:-translate-y-0.5">
+            Solicitar Orçamento Gratuito
+            <lucide-icon [img]="ArrowRight" [size]="18" class="group-hover:translate-x-1 transition-transform duration-200"></lucide-icon>
+          </a>
+          <a routerLink="/containers"
+             class="flex items-center gap-3 bg-white/10 border border-white/30 text-white font-medium text-base px-8 py-4 rounded-lg hover:bg-white/20 hover:border-white/50 transition-all duration-200">
+            Ver Nossos Containers
+          </a>
+        </div>
+
+        <div class="flex flex-wrap gap-6 mt-12 text-sm text-white/60">
+          <span class="flex items-center gap-2"><lucide-icon [img]="CheckCircle2" [size]="16" class="text-bravo-yellow"></lucide-icon> Sem burocracia</span>
+          <span class="flex items-center gap-2"><lucide-icon [img]="CheckCircle2" [size]="16" class="text-bravo-yellow"></lucide-icon> Entrega em 24-48h</span>
+          <span class="flex items-center gap-2"><lucide-icon [img]="CheckCircle2" [size]="16" class="text-bravo-yellow"></lucide-icon> Suporte técnico incluído</span>
+          <span class="flex items-center gap-2"><lucide-icon [img]="CheckCircle2" [size]="16" class="text-bravo-yellow"></lucide-icon> +500 obras atendidas</span>
+        </div>
       </div>
 
-      <h1 class="text-5xl md:text-7xl lg:text-8xl font-black leading-none tracking-tight mb-6 text-white">
-        Containers de<br>
-        <span class="text-bravo-yellow">Alto Padrão</span><br>
-        para Sua Obra
-      </h1>
-
-      <p class="text-xl md:text-2xl text-white/70 max-w-2xl mx-auto mb-12 leading-relaxed font-light">
-        Locação, venda e projetos especiais. Entrega rápida, contratos transparentes e suporte técnico especializado.
-      </p>
-
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <a routerLink="/fale-conosco"
-           class="group flex items-center gap-3 bg-bravo-yellow text-bravo-navy font-bold text-base px-8 py-4 rounded-lg hover:bg-bravo-gold transition-all duration-200 hover:shadow-xl hover:shadow-bravo-yellow/30 hover:-translate-y-0.5">
-          Solicitar Orçamento Gratuito
-          <lucide-icon [img]="ArrowRight" [size]="18" class="group-hover:translate-x-1 transition-transform duration-200"></lucide-icon>
-        </a>
-        <a routerLink="/containers"
-           class="flex items-center gap-3 bg-white/10 border border-white/30 text-white font-medium text-base px-8 py-4 rounded-lg hover:bg-white/20 hover:border-white/50 transition-all duration-200">
-          Ver Nossos Containers
-        </a>
-      </div>
-
-      <div class="flex flex-wrap justify-center gap-6 mt-16 text-sm text-white/60">
-        <span class="flex items-center gap-2"><lucide-icon [img]="CheckCircle2" [size]="16" class="text-bravo-yellow"></lucide-icon> Sem burocracia</span>
-        <span class="flex items-center gap-2"><lucide-icon [img]="CheckCircle2" [size]="16" class="text-bravo-yellow"></lucide-icon> Entrega em 24-48h</span>
-        <span class="flex items-center gap-2"><lucide-icon [img]="CheckCircle2" [size]="16" class="text-bravo-yellow"></lucide-icon> Suporte técnico incluído</span>
-        <span class="flex items-center gap-2"><lucide-icon [img]="CheckCircle2" [size]="16" class="text-bravo-yellow"></lucide-icon> +500 obras atendidas</span>
+      <!-- Right: photo -->
+      <div class="hidden lg:flex items-center justify-center">
+        <div class="relative w-full max-w-lg">
+          <div class="absolute -inset-4 bg-bravo-yellow/10 rounded-2xl blur-2xl"></div>
+          <img src="https://bravoequipamentos.com/images/005.png"
+               alt="Containers Bravo Equipamentos"
+               class="relative rounded-xl shadow-2xl w-full object-cover border border-white/10"
+               loading="eager">
+        </div>
       </div>
     </div>
 
@@ -135,8 +149,8 @@
       <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
         <a *ngFor="let type of containerTypes" routerLink="/containers"
            class="group bg-white border border-gray-200 rounded-xl overflow-hidden hover:border-bravo-yellow hover:shadow-md transition-all duration-300 hover:-translate-y-1 block shadow-sm">
-          <div class="aspect-video bg-gray-50 flex items-center justify-center overflow-hidden p-4">
-            <img [src]="type.image" [alt]="type.name" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
+          <div class="aspect-video bg-gray-100 overflow-hidden">
+            <img [src]="type.image" [alt]="type.name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           </div>
           <div class="p-4 flex items-center justify-between border-t border-gray-100">
             <h3 class="text-sm font-semibold text-gray-900">{{ type.name }}</h3>
