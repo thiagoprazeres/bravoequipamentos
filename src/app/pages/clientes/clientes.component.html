@@ -1,17 +1,19 @@
 <div class="bg-white text-gray-900">
 
   <!-- PAGE HEADER -->
-  <section class="relative pt-24 pb-16 overflow-hidden bg-gray-50">
-    <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-bravo-yellow/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+  <section class="relative pt-24 pb-16 overflow-hidden bg-bravo-navy">
+    <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-bravo-yellow/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
     <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
-      <div class="inline-flex items-center gap-2 bg-bravo-yellow/20 border border-bravo-yellow text-gray-700 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-8">
+      <img src="logos/logo-fundo_branco.svg" alt="BRAVO EQUIPAMENTOS" width="200" height="50" class="h-12 w-auto mx-auto mb-8 block" loading="eager">
+      <div class="inline-flex items-center gap-2 bg-white/10 border border-white/25 text-white text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-8">
         <span class="w-1.5 h-1.5 rounded-full bg-bravo-yellow inline-block"></span>
         +87 Empresas Atendidas · 6 Segmentos
       </div>
-      <h1 class="text-5xl md:text-7xl font-black leading-none tracking-tight mb-6 text-gray-900">
-        Empresas que<br><span class="text-bravo-navy">Confiam na Bravo</span>
+      <h1 class="text-5xl md:text-7xl font-black leading-none tracking-tight mb-6 text-white">
+        Empresas que<br><span class="text-bravo-yellow">Confiam na Bravo</span>
       </h1>
-      <p class="text-xl text-gray-500 max-w-2xl mx-auto">
+      <p class="text-xl text-white/70 max-w-2xl mx-auto">
         Construtoras, indústrias, governo, saúde e muito mais. Há mais de 10 anos servindo os melhores projetos de Pernambuco.
       </p>
     </div>
@@ -93,7 +95,7 @@
           <div class="bg-white border border-gray-200 rounded-2xl p-8 flex flex-col shadow-sm hover:border-bravo-yellow hover:shadow-md transition-all duration-300">
             <div class="flex gap-1 mb-5">
               @for (s of [1,2,3,4,5]; track s) {
-                <span class="text-bravo-yellow text-base">★</span>
+                <lucide-icon [img]="Star" [size]="16" class="text-bravo-yellow" style="fill:currentColor"></lucide-icon>
               }
             </div>
             <lucide-icon [img]="Quote" [size]="28" class="text-bravo-yellow mb-4"></lucide-icon>

@@ -5,7 +5,7 @@ import { Title, Meta } from '@angular/platform-browser';
 import {
   LucideAngularModule,
   ShoppingCart, Home, Wrench, CheckCircle2, Users, Clock,
-  Shield, Zap, Award, ArrowRight, Star, Phone, MapPin,
+  Shield, Zap, Award, ArrowRight, Star, Phone, MapPin, Mail,
   HardHat, Truck, ClipboardCheck
 } from 'lucide-angular';
 
@@ -40,6 +40,7 @@ export class HomeComponent {
   readonly Star = Star;
   readonly Phone = Phone;
   readonly MapPin = MapPin;
+  readonly Mail = Mail;
   readonly HardHat = HardHat;
   readonly Truck = Truck;
   readonly ClipboardCheck = ClipboardCheck;

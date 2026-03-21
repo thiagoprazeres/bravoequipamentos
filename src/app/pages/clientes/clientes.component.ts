@@ -2,7 +2,7 @@ import { Component, signal, computed, ChangeDetectionStrategy, inject } from '@a
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
-import { LucideAngularModule, Quote } from 'lucide-angular';
+import { LucideAngularModule, Quote, Star } from 'lucide-angular';
 
 interface Client {
   logo: string;
@@ -30,6 +30,7 @@ export class ClientesComponent {
   }
 
   readonly Quote = Quote;
+  readonly Star = Star;
 
   readonly categories = ['Todos', 'Construção', 'Indústria', 'Governo', 'Saúde', 'Serviço', 'Outros'];
 
