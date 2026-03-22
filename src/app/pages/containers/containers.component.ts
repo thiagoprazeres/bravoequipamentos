@@ -1,9 +1,8 @@
-import { Component, inject, ChangeDetectionStrategy, signal, effect, ElementRef, viewChild } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
 import { LucideAngularModule, Check, Zap, Wrench } from 'lucide-angular';
-import gsap from 'gsap';
 
 @Component({
   selector: 'app-containers',
@@ -15,9 +14,6 @@ export class ContainersComponent {
   private readonly title = inject(Title);
   private readonly meta = inject(Meta);
 
-  private readonly modalOverlay = viewChild<ElementRef>('modalOverlay');
-  private readonly modalPanel   = viewChild<ElementRef>('modalPanel');
-
   constructor() {
     this.title.setTitle('Containers para Locação e Venda | Bravo Equipamentos');
     this.meta.updateTag({ name: 'description', content: 'Catálogo completo de containers: escritório, almoxarifado, sanitário, vestíário e mais. Locação e venda em Recife e região metropolitana.' });
@@ -25,55 +21,11 @@ export class ContainersComponent {
     this.meta.updateTag({ property: 'og:description', content: 'Catálogo completo de containers para locação e venda em Recife, PE.' });
     this.meta.updateTag({ property: 'og:url', content: 'https://bravoequipamentos.com/containers' });
 
-    effect(() => {
-      if (this.activeLayout()) {
-        queueMicrotask(() => this.#animateIn());
-      }
-    });
-  }
-
-  #animateIn(): void {
-    const overlay = this.modalOverlay()?.nativeElement as HTMLElement | undefined;
-    const panel   = this.modalPanel()?.nativeElement   as HTMLElement | undefined;
-    if (!overlay || !panel) return;
-
-    const page = document.querySelector<HTMLElement>('main.main-content');
-    if (page) gsap.to(page, { filter: 'blur(8px)', scale: 1.015, duration: 0.45, ease: 'power2.out' });
-
-    gsap.fromTo(overlay,
-      { opacity: 0 },
-      { opacity: 1, duration: 0.35, ease: 'power2.out' }
-    );
-    gsap.fromTo(panel,
-      { opacity: 0, scale: 0.86, y: 36, filter: 'blur(6px)' },
-      { opacity: 1, scale: 1,    y: 0,  filter: 'blur(0px)', duration: 0.5, ease: 'expo.out' }
-    );
   }
 
   readonly Check = Check;
   readonly Zap = Zap;
   readonly Wrench = Wrench;
-
-  readonly activeLayout = signal<{ name: string; url: string } | null>(null);
-
-  openLayout(name: string, url: string) { this.activeLayout.set({ name, url }); }
-
-  closeLayout(): void {
-    const overlay = this.modalOverlay()?.nativeElement as HTMLElement | undefined;
-    const panel   = this.modalPanel()?.nativeElement   as HTMLElement | undefined;
-
-    if (!overlay || !panel) { this.activeLayout.set(null); return; }
-
-    const page = document.querySelector<HTMLElement>('main.main-content');
-
-    gsap.to(panel,   { opacity: 0, scale: 0.9, y: 20, filter: 'blur(4px)', duration: 0.28, ease: 'power2.in' });
-    gsap.to(overlay, { opacity: 0, duration: 0.32, ease: 'power2.in',
-      onComplete: () => {
-        if (page) gsap.to(page, { filter: 'blur(0px)', scale: 1, duration: 0.35, ease: 'power2.out', clearProps: 'filter,scale' });
-        this.activeLayout.set(null);
-      }
-    });
-  }
 
   containers = [
     {
