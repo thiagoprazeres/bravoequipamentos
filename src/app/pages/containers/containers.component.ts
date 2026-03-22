@@ -1,4 +1,4 @@
-import { Component, inject, ChangeDetectionStrategy, signal, viewChild, ElementRef, PLATFORM_ID, afterNextRender } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy, signal, viewChild, ElementRef, afterNextRender, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { GsapService } from '../../core/services/gsap.service';
 import { RouterLink } from '@angular/router';
@@ -15,7 +15,7 @@ export class ContainersComponent {
   private readonly title = inject(Title);
   private readonly meta = inject(Meta);
 
-  private readonly platformId = inject(PLATFORM_ID);
+  private readonly platformId  = inject(PLATFORM_ID);
   private readonly gsap        = inject(GsapService);
   private readonly dialogRef   = viewChild<ElementRef<HTMLDialogElement>>('layoutDialog');
   private readonly magneticCta = viewChild<ElementRef>('magneticCta');
@@ -35,16 +35,17 @@ export class ContainersComponent {
     this.activeLayout.set(null);
   }
 
+
   constructor() {
     afterNextRender(() => {
-      const cta  = this.magneticCta()?.nativeElement as HTMLElement | undefined;
-      if (cta) this.gsap.magneticHover(cta, 0.3);
-
       const grid = this.catalogGrid()?.nativeElement as HTMLElement | undefined;
       if (grid) {
         const cards = Array.from(grid.querySelectorAll<HTMLElement>(':scope > *'));
         this.gsap.staggerReveal(cards, grid);
       }
+
+      const cta = this.magneticCta()?.nativeElement as HTMLElement | undefined;
+      if (cta) this.gsap.magneticHover(cta, 0.3);
     });
 
     this.title.setTitle('Containers para Locação e Venda | Bravo Equipamentos');
