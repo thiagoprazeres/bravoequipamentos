@@ -1,4 +1,5 @@
-import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy, signal, viewChild, ElementRef, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
@@ -13,6 +14,23 @@ import { LucideAngularModule, Check, Zap, Wrench } from 'lucide-angular';
 export class ContainersComponent {
   private readonly title = inject(Title);
   private readonly meta = inject(Meta);
+
+  private readonly platformId = inject(PLATFORM_ID);
+  private readonly dialogRef  = viewChild<ElementRef<HTMLDialogElement>>('layoutDialog');
+
+  readonly activeLayout = signal<{ name: string; url: string } | null>(null);
+
+  openLayout(url: string, name: string): void {
+    this.activeLayout.set({ name, url });
+    if (isPlatformBrowser(this.platformId)) {
+      queueMicrotask(() => this.dialogRef()?.nativeElement.showModal());
+    }
+  }
+
+  closeLayout(): void {
+    this.dialogRef()?.nativeElement.close();
+    this.activeLayout.set(null);
+  }
 
   constructor() {
     this.title.setTitle('Containers para Locação e Venda | Bravo Equipamentos');
