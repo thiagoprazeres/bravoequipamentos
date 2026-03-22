@@ -1,6 +1,6 @@
 import { Component, inject, ChangeDetectionStrategy, signal, afterNextRender, viewChild, ElementRef } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
-import { LucideAngularModule, Phone, CheckCircle2, Clock, Truck, Shield, ChevronDown, MessageCircle, Zap, Star } from 'lucide-angular';
+import { LucideAngularModule, Phone, CheckCircle2, Clock, Truck, Shield, ChevronDown, Zap, Star } from 'lucide-angular';
 import { GsapService } from '../../core/services/gsap.service';
 
 @Component({
@@ -23,7 +23,6 @@ export class StandDeVendasComponent {
   readonly Truck          = Truck;
   readonly Shield         = Shield;
   readonly ChevronDown    = ChevronDown;
-  readonly MessageCircle  = MessageCircle;
   readonly Zap            = Zap;
   readonly Star           = Star;
 
