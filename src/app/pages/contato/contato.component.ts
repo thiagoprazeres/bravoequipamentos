@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Title, Meta } from '@angular/platform-browser';
 import { LucideAngularModule, Mail, Phone, MapPin, Clock, Instagram, Facebook } from 'lucide-angular';
+import { MaskitoDirective } from '@maskito/angular';
+import type { MaskitoOptions } from '@maskito/core';
 
 @Component({
   selector: 'app-contato',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, FormsModule, LucideAngularModule],
+  imports: [CommonModule, FormsModule, LucideAngularModule, MaskitoDirective],
   templateUrl: './contato.component.html'
 })
 export class ContatoComponent {
@@ -30,6 +32,15 @@ export class ContatoComponent {
   readonly Facebook = Facebook;
   readonly status = signal<'idle' | 'loading' | 'success' | 'error'>('idle');
 
+  readonly phoneMask: MaskitoOptions = {
+    mask: ({ value }) => {
+      const digits = value.replace(/\D/g, '');
+      return digits.length <= 10
+        ? ['(', /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
+        : ['(', /\d/, /\d/, ')', ' ', /\d/, ' ', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+    },
+  };
+
   formData = {
     name: '',
     email: '',
@@ -39,8 +50,8 @@ export class ContatoComponent {
 
   contactInfo = {
     email: 'contato@bravoequipamentos.com',
-    phone: '(81) 3333-3333',
-    address: 'Recife / PE',
+    phone: '(81) 9 9111-8980',
+    address: 'R. Mata Grande, 151 — Prazeres, Jaboatão dos Guararapes / PE',
     hours: 'Segunda a Sexta: 8h às 18h',
     mapsUrl: 'https://maps.app.goo.gl/6B4oUBWYiBHz9Nsn7',
     instagramUrl: 'https://www.instagram.com/bravoequipamentospe/',

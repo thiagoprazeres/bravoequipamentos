@@ -77,14 +77,6 @@ export class ContainersComponent {
 
   containers = [
     {
-      name: 'Stand de Vendas',
-      description: 'Container adaptado como ponto de atendimento ao cliente ou sala de vendas em obras. Acabamento interno clean, frente envidraçada para visibilidade e instalação elétrica completa.',
-      features: ['Frente envidraçada', 'Acabamento clean', 'Instalação elétrica', 'Ar-condicionado'],
-      image: '/images/stand-exterior-03.jpg',
-      layout: '',
-      route: '/stand-de-vendas'
-    },
-    {
       name: 'Almoxarifado',
       description: 'Espaço seguro e organizado para guardar materiais, ferramentas e insumos de obra. Interior revestido em madeira, prateleiras opcionais e porta dupla com tranca reforçada.',
       features: ['Porta dupla reforçada', 'Prateleiras opcionais', 'Interior em madeira', 'Ventilado'],
@@ -125,6 +117,14 @@ export class ContainersComponent {
       features: ['Armários individuais', 'Bancos', 'Ventilação natural', 'Conforme NR 18'],
       image: 'https://bravoequipamentos.com/images/page4_img6.jpg',
       layout: 'https://bravoequipamentos.com/images/Vestiario.png'
+    },
+    {
+      name: 'Stand de Vendas',
+      description: 'Container adaptado como ponto de atendimento ao cliente ou sala de vendas em obras. Acabamento interno clean, frente envidraçada para visibilidade e instalação elétrica completa.',
+      features: ['Frente envidraçada', 'Acabamento clean', 'Instalação elétrica', 'Ar-condicionado'],
+      image: '/images/stand-exterior-03.jpg',
+      layout: '',
+      route: '/stand-de-vendas'
     }
   ];
 }
