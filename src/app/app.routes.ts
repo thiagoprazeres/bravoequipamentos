@@ -21,7 +21,7 @@ export const routes: Routes = [
   },
   {
     path: 'containers',
-    title: 'Tipos de Container | Bravo Equipamentos — Recife PE',
+    title: 'Tipos de Container | Bravo Equipamentos — Recife-PE',
     data: {
       description: 'Conheça nossos modelos: almoxarifado, escritório com e sem WC, banheiro coletivo, vestiário e stand de vendas. Containers para locação e venda em Recife e região.',
       ogUrl: 'https://bravoequipamentos.com/containers'
@@ -48,7 +48,7 @@ export const routes: Routes = [
   },
   {
     path: 'stand-de-vendas',
-    title: 'Stand de Vendas em Container | Bravo Equipamentos — Recife PE',
+    title: 'Stand de Vendas em Container | Bravo Equipamentos — Recife-PE',
     data: {
       description: 'Monte seu Stand de Vendas em container moderno para lançamentos imobiliários. Frente envidraçada, ar-condicionado e elétrica completa. Entrega rápida em Recife e região.',
       ogUrl: 'https://bravoequipamentos.com/stand-de-vendas'
