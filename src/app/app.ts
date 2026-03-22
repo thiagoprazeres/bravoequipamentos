@@ -14,6 +14,7 @@ import { FooterComponent } from './core/components/footer/footer.component';
 export class App {
   readonly scrollPct = signal(0);
   readonly pageEnter = signal(false);
+  readonly showFab   = signal(false);
 
   private readonly router = inject(Router);
 
@@ -23,6 +24,7 @@ export class App {
       const onScroll = () => {
         const max = document.body.scrollHeight - window.innerHeight;
         this.scrollPct.set(max > 0 ? Math.round((window.scrollY / max) * 100) : 0);
+        this.showFab.set(window.scrollY > 300);
       };
       window.addEventListener('scroll', onScroll, { passive: true });
 
