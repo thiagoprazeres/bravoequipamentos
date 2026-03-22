@@ -1,6 +1,7 @@
-import { Component, inject, ChangeDetectionStrategy, signal } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy, signal, afterNextRender, viewChild, ElementRef } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { LucideAngularModule, Phone, CheckCircle2, Clock, Truck, Shield, ChevronDown, MessageCircle, Zap, Star } from 'lucide-angular';
+import { GsapService } from '../../core/services/gsap.service';
 
 @Component({
   selector: 'app-stand-de-vendas',
@@ -11,6 +12,10 @@ import { LucideAngularModule, Phone, CheckCircle2, Clock, Truck, Shield, Chevron
 export class StandDeVendasComponent {
   private readonly title = inject(Title);
   private readonly meta  = inject(Meta);
+  private readonly gsap  = inject(GsapService);
+
+  private readonly magneticCta = viewChild<ElementRef>('magneticCta');
+  private readonly heroImg     = viewChild<ElementRef>('heroImg');
 
   readonly Phone          = Phone;
   readonly CheckCircle2   = CheckCircle2;
@@ -31,6 +36,14 @@ export class StandDeVendasComponent {
   }
 
   constructor() {
+    afterNextRender(() => {
+      const cta = this.magneticCta()?.nativeElement as HTMLElement | undefined;
+      if (cta) this.gsap.magneticHover(cta, 0.3);
+
+      const img = this.heroImg()?.nativeElement as HTMLElement | undefined;
+      if (img) this.gsap.parallax(img, 0.12);
+    });
+
     this.title.setTitle('Stand de Vendas em Container | Bravo Equipamentos — Recife PE');
     this.meta.updateTag({ name: 'description', content: 'Monte seu Stand de Vendas em um container moderno. Entrega rápida em Recife e região. Instalação elétrica, frente envidraçada e ar-condicionado. Solicite orçamento agora!' });
     this.meta.updateTag({ property: 'og:title',       content: 'Stand de Vendas em Container | Bravo Equipamentos' });

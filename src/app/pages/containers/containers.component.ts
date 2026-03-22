@@ -1,6 +1,6 @@
-import { Component, inject, ChangeDetectionStrategy, signal, viewChild, ElementRef, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
-import { CommonModule } from '@angular/common';
+import { Component, inject, ChangeDetectionStrategy, signal, viewChild, ElementRef, PLATFORM_ID, afterNextRender } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { GsapService } from '../../core/services/gsap.service';
 import { RouterLink } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
 import { LucideAngularModule, Check, Zap, Wrench } from 'lucide-angular';
@@ -16,7 +16,10 @@ export class ContainersComponent {
   private readonly meta = inject(Meta);
 
   private readonly platformId = inject(PLATFORM_ID);
-  private readonly dialogRef  = viewChild<ElementRef<HTMLDialogElement>>('layoutDialog');
+  private readonly gsap        = inject(GsapService);
+  private readonly dialogRef   = viewChild<ElementRef<HTMLDialogElement>>('layoutDialog');
+  private readonly magneticCta = viewChild<ElementRef>('magneticCta');
+  private readonly catalogGrid = viewChild<ElementRef>('catalogGrid');
 
   readonly activeLayout = signal<{ name: string; url: string } | null>(null);
 
@@ -33,6 +36,17 @@ export class ContainersComponent {
   }
 
   constructor() {
+    afterNextRender(() => {
+      const cta  = this.magneticCta()?.nativeElement as HTMLElement | undefined;
+      if (cta) this.gsap.magneticHover(cta, 0.3);
+
+      const grid = this.catalogGrid()?.nativeElement as HTMLElement | undefined;
+      if (grid) {
+        const cards = Array.from(grid.querySelectorAll<HTMLElement>(':scope > *'));
+        this.gsap.staggerReveal(cards, grid);
+      }
+    });
+
     this.title.setTitle('Containers para Locação e Venda | Bravo Equipamentos');
     this.meta.updateTag({ name: 'description', content: 'Catálogo completo de containers: escritório, almoxarifado, sanitário, vestíário e mais. Locação e venda em Recife e região metropolitana.' });
     this.meta.updateTag({ property: 'og:title', content: 'Containers para Locação e Venda | Bravo Equipamentos' });

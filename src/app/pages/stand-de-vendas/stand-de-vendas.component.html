@@ -4,7 +4,7 @@
 <section class="relative min-h-screen flex flex-col justify-center overflow-hidden">
   <!-- Background image -->
   <div class="absolute inset-0">
-    <img src="/images/stand-exterior-02.jpg" alt="Stand de Vendas Bravo"
+    <img #heroImg src="/images/stand-exterior-02.jpg" alt="Stand de Vendas Bravo"
          class="w-full h-full object-cover object-center" fetchpriority="high">
     <div class="absolute inset-0 bg-linear-to-br from-bravo-navy/90 via-bravo-navy/75 to-bravo-navy/50"></div>
   </div>
@@ -26,7 +26,7 @@
     </p>
 
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a [href]="whatsappUrl" target="_blank" rel="noopener noreferrer"
+      <a #magneticCta [href]="whatsappUrl" target="_blank" rel="noopener noreferrer"
          class="btn-sheen inline-flex items-center justify-center gap-3 bg-green-500 hover:bg-green-400 text-white font-black text-lg px-10 py-5 rounded-xl transition-all duration-200 hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-green-500/30">
         <lucide-icon [img]="MessageCircle" [size]="22"></lucide-icon>
         Quero um Orçamento Agora
@@ -45,11 +45,11 @@
       <span class="flex items-center gap-2"><lucide-icon [img]="CheckCircle2" [size]="16" class="text-bravo-yellow"></lucide-icon> +10 anos no mercado</span>
       <span class="flex items-center gap-2"><lucide-icon [img]="CheckCircle2" [size]="16" class="text-bravo-yellow"></lucide-icon> Personalização inclusa</span>
     </div>
-  </div>
 
   <!-- Scroll hint -->
   <div class="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce">
     <lucide-icon [img]="ChevronDown" [size]="28" class="text-white/40"></lucide-icon>
+  </div>
   </div>
 </section>
 
@@ -230,7 +230,7 @@
     </div>
     <div class="space-y-3">
       @for (faq of faqs; track faq.q; let i = $index) {
-        <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden transition-all duration-300"
+        <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden transition-colors duration-300"
              [class.border-bravo-yellow]="openFaq() === i">
           <button class="w-full flex items-center justify-between px-6 py-5 text-left gap-4"
                   (click)="toggleFaq(i)"
@@ -241,11 +241,14 @@
                          [style.transform]="openFaq() === i ? 'rotate(180deg)' : 'rotate(0deg)'">
             </lucide-icon>
           </button>
-          @if (openFaq() === i) {
-            <div class="px-6 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
-              {{ faq.a }}
+          <div class="grid transition-[grid-template-rows] duration-300 ease-in-out"
+               [style.grid-template-rows]="openFaq() === i ? '1fr' : '0fr'">
+            <div class="overflow-hidden">
+              <div class="px-6 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+                {{ faq.a }}
+              </div>
             </div>
-          }
+          </div>
         </div>
       }
     </div>
@@ -264,7 +267,7 @@
       }
     </div>
     <h2 class="text-4xl md:text-5xl font-black text-bravo-navy mb-4 leading-tight scroll-reveal-heading">
-      Mais de 500 obras atendidas<br>em Pernambuco.
+      Mais de 500 obras atendidas<br>em Pernambuco, Paraíba e presença em todo o Nordeste.
     </h2>
     <p class="text-gray-500 text-lg mb-10">
       Junte-se às construtoras e incorporadoras que já confiam na Bravo para montar seus stands — rápido, bonito e no prazo.
