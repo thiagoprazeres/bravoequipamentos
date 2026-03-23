@@ -4,17 +4,8 @@ import { RouterLink } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
 import { CanonicalService } from '../../core/services/canonical.service';
 import { LucideAngularModule, Check, Zap, Wrench } from 'lucide-angular';
-
-interface ContainerItem {
-  name: string;
-  description: string;
-  features: string[];
-  image: string;
-  layout: string;
-  photos: string[];
-  route?: string;
-  badge?: string;
-}
+import { Container } from '../../core/models/container.model';
+import { CONTAINERS } from '../../core/data/containers.data';
 
 @Component({
   selector: 'app-containers',
@@ -48,7 +39,7 @@ export class ContainersComponent {
     this.activeLayout.set(null);
   }
 
-  openPhotos(container: ContainerItem): void {
+  openPhotos(container: Container): void {
     if (!isPlatformBrowser(this.platformId) || !container.photos.length) return;
     Promise.all([
       import('lightgallery'),
@@ -89,72 +80,5 @@ export class ContainersComponent {
   readonly Zap = Zap;
   readonly Wrench = Wrench;
 
-  containers: ContainerItem[] = [
-    {
-      name: 'Almoxarifado',
-      description: 'Espaço seguro e organizado para guardar materiais, ferramentas e insumos de obra. Interior revestido em madeira, prateleiras opcionais e porta dupla com tranca reforçada.',
-      features: ['Porta dupla reforçada', 'Prateleiras opcionais', 'Interior em madeira', 'Ventilado'],
-      image: 'https://bravoequipamentos.com/images/BR-almoxarifado.jpg',
-      layout: 'https://bravoequipamentos.com/images/Almoxarifado.png',
-      photos: ['https://bravoequipamentos.com/images/BR-almoxarifado.jpg'],
-    },
-    {
-      name: 'Banheiro Coletivo',
-      description: 'Solução sanitária completa para canteiro de obras. Atende à NR 18 (item 18.4.1.3) com ventilação mínima de 15% da área do piso, pé-direito ≥ 2,40 m e condições adequadas de higiene.',
-      features: ['Conforme NR 18', 'Múltiplos sanitários', 'Chuveiros', 'Lavatórios', 'Ventilação regulamentada'],
-      image: 'https://bravoequipamentos.com/images/BR-banheiro-01.JPG',
-      layout: 'https://bravoequipamentos.com/images/Banheiro-coletivo.png',
-      photos: ['https://bravoequipamentos.com/images/BR-banheiro-01.JPG'],
-    },
-    {
-      name: 'Depósito',
-      description: 'Container de grande capacidade para armazenamento de equipamentos pesados, materiais de construção e insumos. Estrutura metálica resistente com porta dupla e piso reforçado.',
-      features: ['Grande capacidade', 'Porta dupla', 'Piso reforçado', 'Alta resistência'],
-      image: 'https://bravoequipamentos.com/images/BR-deposito.jpg',
-      layout: 'https://bravoequipamentos.com/images/Deposito-porta-dupla.png',
-      photos: ['https://bravoequipamentos.com/images/BR-deposito.jpg'],
-    },
-    {
-      name: 'Escritório c/ WC',
-      description: 'Escritório completo com banheiro integrado para gestão de obras. Revestimento interno em PVC, iluminação fluorescente, janelas e ar-condicionado com manutenção preventiva em dia.',
-      features: ['Banheiro integrado', 'Ar-condicionado', 'Revestimento em PVC', 'Iluminação inclusa'],
-      image: 'https://bravoequipamentos.com/images/BR-escritorio_com_wc.jpg',
-      layout: 'https://bravoequipamentos.com/images/Escritorio-com-banheiro.png',
-      photos: ['https://bravoequipamentos.com/images/BR-escritorio_com_wc.jpg'],
-    },
-    {
-      name: 'Escritório s/ WC',
-      description: 'Ambiente de trabalho confortável e funcional para administração de projetos. Paredes em PVC, iluminação fluorescente, janelas amplas e ar-condicionado com manutenção em dia.',
-      features: ['Ar-condicionado', 'Revestimento em PVC', 'Janelas amplas', 'Iluminação inclusa'],
-      image: 'https://bravoequipamentos.com/images/BR-escritorio_sem_wc.jpg',
-      layout: 'https://bravoequipamentos.com/images/Escritorio-sem-banheiro.png',
-      photos: ['https://bravoequipamentos.com/images/BR-escritorio_sem_wc.jpg'],
-    },
-    {
-      name: 'Vestiário',
-      description: 'Espaço adequado para troca de roupas e guarda de pertences dos trabalhadores. Armários individuais, bancos e boa ventilação natural conforme normas de canteiro de obra.',
-      features: ['Armários individuais', 'Bancos', 'Ventilação natural', 'Conforme NR 18'],
-      image: 'https://bravoequipamentos.com/images/page4_img6.jpg',
-      layout: 'https://bravoequipamentos.com/images/Vestiario.png',
-      photos: ['https://bravoequipamentos.com/images/page4_img6.jpg'],
-    },
-    {
-      name: 'Módulo - Escritório s/ WC',
-      description: 'Solução modular leve e versátil para escritório em canteiro de obras. Estrutura compacta de fácil instalação e remoção, ideal para espaços menores ou locações de curta duração. Revestimento interno, iluminação e ar-condicionado inclusos.',
-      features: ['Ar-condicionado', 'Revestimento interno', 'Iluminação inclusa', 'Fácil instalação', 'Estrutura leve'],
-      image: 'https://bravoequipamentos.com/images/BR-escritorio_sem_wc.jpg',
-      layout: '',
-      photos: [],
-      badge: 'Módulo',
-    },
-    {
-      name: 'Stand de Vendas',
-      description: 'Container adaptado como ponto de atendimento ao cliente ou sala de vendas em obras. Acabamento interno clean, frente envidraçada para visibilidade e instalação elétrica completa.',
-      features: ['Frente envidraçada', 'Acabamento clean', 'Instalação elétrica', 'Ar-condicionado'],
-      image: '/images/stand-exterior-03.jpg',
-      layout: '',
-      photos: ['/images/stand-exterior-03.jpg', '/images/stand-exterior-02.jpg'],
-      route: '/stand-de-vendas',
-    },
-  ];
+  readonly containers: Container[] = CONTAINERS;
 }

@@ -1,4 +1,5 @@
-import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
+import { CONTAINERS } from '../../core/data/containers.data';
 import { LogoAnimComponent } from '../../core/components/logo-anim/logo-anim.component';
 import { RouterLink } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
@@ -100,16 +101,7 @@ export class HomeComponent {
     }
   ];
 
-  containerTypes = [
-    { name: 'Almoxarifado',      image: 'https://bravoequipamentos.com/images/BR-almoxarifado.jpg' },
-    { name: 'Banheiro Coletivo', image: 'https://bravoequipamentos.com/images/BR-banheiro-01.JPG' },
-    { name: 'Depósito',          image: 'https://bravoequipamentos.com/images/BR-deposito.jpg' },
-    { name: 'Escritório c/ WC',  image: 'https://bravoequipamentos.com/images/BR-escritorio_com_wc.jpg' },
-    { name: 'Escritório s/ WC',  image: 'https://bravoequipamentos.com/images/BR-escritorio_sem_wc.jpg' },
-    { name: 'Vestiário',         image: 'https://bravoequipamentos.com/images/page4_img6.jpg' },
-    { name: 'Módulo - Escritório s/ WC', image: 'https://bravoequipamentos.com/images/BR-escritorio_sem_wc.jpg' },
-    { name: 'Stand de Vendas',           image: '/images/stand-exterior-03.jpg' },
-  ];
+  readonly containerTypes = CONTAINERS;
 
   steps = [
     {
