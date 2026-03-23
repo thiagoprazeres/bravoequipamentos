@@ -14,8 +14,9 @@ export class StandDeVendasComponent {
   private readonly meta  = inject(Meta);
   private readonly gsap  = inject(GsapService);
 
-  private readonly magneticCta = viewChild<ElementRef>('magneticCta');
-  private readonly heroImg     = viewChild<ElementRef>('heroImg');
+  private readonly magneticCta  = viewChild<ElementRef>('magneticCta');
+  private readonly heroImg      = viewChild<ElementRef>('heroImg');
+  private readonly galleryGrid  = viewChild<ElementRef>('galleryGrid');
 
   readonly Phone          = Phone;
   readonly CheckCircle2   = CheckCircle2;
@@ -41,6 +42,22 @@ export class StandDeVendasComponent {
 
       const img = this.heroImg()?.nativeElement as HTMLElement | undefined;
       if (img) this.gsap.parallax(img, 0.12);
+
+      const gallery = this.galleryGrid()?.nativeElement as HTMLElement | undefined;
+      if (gallery) {
+        Promise.all([
+          import('lightgallery'),
+          import('lightgallery/plugins/zoom'),
+        ]).then(([{ default: lightGallery }, { default: lgZoom }]) => {
+          lightGallery(gallery, {
+            plugins: [lgZoom],
+            speed: 400,
+            download: false,
+            counter: false,
+            mobileSettings: { controls: true, showCloseIcon: true },
+          });
+        });
+      }
     });
 
     this.title.setTitle('Stand de Vendas em Container | Bravo Equipamentos — Recife PE');
