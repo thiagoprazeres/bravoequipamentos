@@ -1,59 +1,122 @@
-# Bravoequipamentos
+# Bravo Equipamentos — Site Institucional
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.3.
+Site institucional da **Bravo Equipamentos**, empresa de locação e venda de containers habitáveis em Recife e Pernambuco.
 
-## Development server
+🌐 [bravoequipamentos.com](https://bravoequipamentos.com)
 
-To start a local development server, run:
+---
+
+## Stack
+
+| Camada | Tecnologia |
+|---|---|
+| Framework | Angular 21 (standalone, SSR) |
+| Linguagem | TypeScript 5.9 |
+| Estilização | Tailwind CSS v4 |
+| Ícones | lucide-angular |
+| Formulários | Reactive Forms (`@angular/forms`) |
+| Máscara de input | Maskito |
+| Galeria de fotos | lightgallery |
+| Animação de logo | GSAP 3 |
+| Fonte | Inter Variable (`@fontsource-variable/inter`) |
+| Deploy | Netlify (com SSR + formulários nativos) |
+
+---
+
+## Páginas
+
+| Rota | Componente | Descrição |
+|---|---|---|
+| `/` | `HomeComponent` | Landing page principal |
+| `/containers` | `ContainersComponent` | Catálogo de containers com modal de plantas |
+| `/stand-de-vendas` | `StandDeVendasComponent` | Página de produto — Stand de Vendas em Container |
+| `/sobre-a-bravo` | `SobreComponent` | História, diferenciais e valores |
+| `/clientes` | `ClientesComponent` | Clientes e depoimentos |
+| `/fale-conosco` | `ContatoComponent` | Formulário de orçamento + mapa |
+| `/**` | `NotFoundComponent` | Página 404 personalizada |
+
+---
+
+## Qualidade
+
+| Categoria | Score (Lighthouse) |
+|---|---|
+| Acessibilidade | **100** |
+| SEO | **100** |
+| Boas Práticas | **100** |
+| Performance | 71 local · melhor em produção¹ |
+
+¹ _O score de performance em localhost é afetado pela latência de imagens servidas do domínio de produção._
+
+### SEO & Metadados
+- Canonical URL por página via `CanonicalService`
+- JSON-LD `LocalBusiness` + `FAQPage`
+- Open Graph + Twitter Card por página
+- `robots.txt` com referência ao `sitemap.xml`
+- Apple Touch Icon + Web App Manifest (PWA)
+
+### Acessibilidade (WCAG AA)
+- Skip navigation link
+- `aria-expanded` em todos os acordeões FAQ
+- `aria-modal` + `aria-labelledby` no `<dialog>` de plantas
+- `prefers-reduced-motion` — desativa animações/transições via CSS
+- Contraste de cores validado
+
+---
+
+## Desenvolvimento
 
 ```bash
+# Instalar dependências
+npm install
+
+# Servidor de desenvolvimento (SSR)
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
+# Build de produção
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+O servidor de desenvolvimento estará disponível em `http://localhost:4200/`.
 
-## Running unit tests
+---
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Estrutura relevante
 
-```bash
-ng test
+```
+src/
+├── app/
+│   ├── core/
+│   │   ├── components/
+│   │   │   ├── header/
+│   │   │   └── footer/
+│   │   └── services/
+│   │       └── canonical.service.ts   # Gerencia <link rel="canonical">
+│   ├── pages/
+│   │   ├── home/
+│   │   ├── containers/
+│   │   ├── stand-de-vendas/
+│   │   ├── sobre/
+│   │   ├── clientes/
+│   │   ├── contato/
+│   │   └── not-found/
+│   ├── app.routes.ts                  # Lazy loading por rota
+│   └── app.ts                         # App root + scroll progress
+├── public/
+│   ├── robots.txt
+│   ├── sitemap.xml
+│   └── logos/
+└── styles.css                         # Estilos globais + animações
 ```
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## Padrões de código
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Componentes standalone (sem `NgModule`)
+- Estado local com `signal()` e `computed()`
+- `ChangeDetectionStrategy.OnPush` em todos os componentes
+- `inject()` para injeção de dependências
+- Controle de fluxo nativo (`@for`, `@if`, `@switch`) — sem `*ngFor`/`*ngIf`
+- Sem `CommonModule` em nenhum componente
+- Formulários com **Reactive Forms** (`FormGroup`, `FormControl`, `Validators`)
