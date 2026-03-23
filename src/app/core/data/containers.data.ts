@@ -63,7 +63,7 @@ export const CONTAINERS: Container[] = [
     image: 'https://bravoequipamentos.com/images/BR-escritorio_sem_wc.jpg',
     layout: '',
     photos: [],
-    badge: 'Módulo',
+    badges: ['Módulo', 'Novidade'],
   },
   {
     slug: 'stand-de-vendas',
@@ -74,5 +74,6 @@ export const CONTAINERS: Container[] = [
     layout: '',
     photos: ['/images/stand-exterior-03.jpg', '/images/stand-exterior-02.jpg'],
     route: '/stand-de-vendas',
+    badges: ['Novidade'],
   },
 ];

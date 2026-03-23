@@ -100,6 +100,10 @@ src/
 │   │   ├── components/
 │   │   │   ├── header/
 │   │   │   └── footer/
+│   │   ├── data/
+│   │   │   └── containers.data.ts     # Fonte única dos 8 produtos (CONTAINERS[])
+│   │   ├── models/
+│   │   │   └── container.model.ts     # Interface Container (slug, name, photos…)
 │   │   └── services/
 │   │       └── canonical.service.ts   # Gerencia <link rel="canonical">
 │   ├── pages/
@@ -130,3 +134,5 @@ src/
 - Controle de fluxo nativo (`@for`, `@if`, `@switch`) — sem `*ngFor`/`*ngIf`
 - Sem `CommonModule` em nenhum componente
 - Formulários com **Reactive Forms** (`FormGroup`, `FormControl`, `Validators`)
+- Entidade `Container` modelada em `core/models/` com fonte única de dados em `core/data/`
+- Catálogo com 8 produtos identificados por `slug` — badges, fotos e plantas configuráveis por dado

@@ -7,5 +7,5 @@ export interface Container {
   layout: string;
   photos: string[];
   route?: string;
-  badge?: string;
+  badges?: string[];
 }
