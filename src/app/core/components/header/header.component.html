@@ -7,7 +7,7 @@
       [class]="scrolled()
         ? 'flex items-center justify-between h-14 transition-all duration-300'
         : 'flex items-center justify-between h-18 transition-all duration-300'">
-      <a routerLink="/" (click)="closeMenu()" aria-label="Bravo Equipamentos — início" class="shrink-0 header-nav-item">
+      <a routerLink="/" (click)="closeMenu()" aria-label="Bravo Equipamentos — início" class="shrink-0 header-nav-item animate-fade-in-up [animation-delay:200ms]">
         <img
           src="logos/simbolo-navy.svg"
           alt="Bravo"
@@ -16,14 +16,14 @@
 
       <nav class="hidden md:block">
         <ul class="flex gap-8">
-          <li class="header-nav-item"><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()" class="text-bravo-navy text-sm font-medium tracking-wide hover:text-bravo-navy/70 transition-colors duration-200 [&.active]:font-bold">Início</a></li>
-          <li class="header-nav-item"><a routerLink="/sobre-a-bravo" routerLinkActive="active" (click)="closeMenu()" class="text-bravo-navy text-sm font-medium tracking-wide hover:text-bravo-navy/70 transition-colors duration-200 [&.active]:font-bold">Sobre</a></li>
-          <li class="header-nav-item"><a routerLink="/containers" routerLinkActive="active" (click)="closeMenu()" class="text-bravo-navy text-sm font-medium tracking-wide hover:text-bravo-navy/70 transition-colors duration-200 [&.active]:font-bold">Containers</a></li>
-          <li class="header-nav-item"><a routerLink="/clientes" routerLinkActive="active" (click)="closeMenu()" class="text-bravo-navy text-sm font-medium tracking-wide hover:text-bravo-navy/70 transition-colors duration-200 [&.active]:font-bold">Clientes</a></li>
+          <li class="header-nav-item animate-fade-in-up [animation-delay:270ms]"><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()" class="text-bravo-navy text-sm font-medium tracking-wide hover:text-bravo-navy/70 transition-colors duration-200 [&.active]:font-bold">Início</a></li>
+          <li class="header-nav-item animate-fade-in-up [animation-delay:340ms]"><a routerLink="/sobre-a-bravo" routerLinkActive="active" (click)="closeMenu()" class="text-bravo-navy text-sm font-medium tracking-wide hover:text-bravo-navy/70 transition-colors duration-200 [&.active]:font-bold">Sobre</a></li>
+          <li class="header-nav-item animate-fade-in-up [animation-delay:410ms]"><a routerLink="/containers" routerLinkActive="active" (click)="closeMenu()" class="text-bravo-navy text-sm font-medium tracking-wide hover:text-bravo-navy/70 transition-colors duration-200 [&.active]:font-bold">Containers</a></li>
+          <li class="header-nav-item animate-fade-in-up [animation-delay:480ms]"><a routerLink="/clientes" routerLinkActive="active" (click)="closeMenu()" class="text-bravo-navy text-sm font-medium tracking-wide hover:text-bravo-navy/70 transition-colors duration-200 [&.active]:font-bold">Clientes</a></li>
         </ul>
       </nav>
 
-      <div class="hidden md:flex items-center gap-4 header-nav-item">
+      <div class="hidden md:flex items-center gap-4 header-nav-item animate-fade-in-up [animation-delay:550ms]">
         <a href="tel:+5581991118980" class="text-bravo-navy text-sm font-medium hover:text-bravo-navy/70 transition-colors duration-200 flex items-center gap-1.5">
           <lucide-icon [img]="Phone" [size]="15" class="text-bravo-navy/60"></lucide-icon>(81) 9 9111-8980
         </a>

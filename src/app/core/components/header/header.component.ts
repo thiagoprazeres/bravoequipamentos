@@ -1,7 +1,6 @@
 import { Component, signal, ChangeDetectionStrategy, afterNextRender } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { LucideAngularModule, Menu, X, Phone } from 'lucide-angular';
-import gsap from 'gsap';
 
 @Component({
   selector: 'app-header',
@@ -18,15 +17,9 @@ export class HeaderComponent {
 
   constructor() {
     afterNextRender(() => {
-      // Scroll-aware shrink
       const onScroll = () => this.scrolled.set(window.scrollY > 72);
       window.addEventListener('scroll', onScroll, { passive: true });
       onScroll();
-
-      // Entrance: nav links stagger in
-      gsap.from('.header-nav-item', {
-        opacity: 0, y: -8, duration: 0.45, ease: 'power2.out', stagger: 0.07, delay: 0.2,
-      });
     });
   }
 
