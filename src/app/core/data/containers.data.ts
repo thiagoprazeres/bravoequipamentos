@@ -8,7 +8,7 @@ export const CONTAINERS: Container[] = [
     features: ['Porta dupla reforçada', 'Prateleiras ajustáveis', 'Janela alçapão', 'Interior em madeira'],
     image: '/images/BR-almoxarifado.webp',
     layout: '/images/layouts/Almoxarifado.webp',
-    photos: ['/images/BR-almoxarifado.webp'],
+    photos: ['/images/BR-almoxarifado.webp', '/images/gallery/almoxarifado-interior.webp'],
   },
   {
     slug: 'banheiro-coletivo',
@@ -17,7 +17,7 @@ export const CONTAINERS: Container[] = [
     features: ['Conforme NR 18', 'Múltiplos sanitários', 'Chuveiros', 'Lavatórios', 'Ventilação regulamentada'],
     image: '/images/BR-banheiro-01.webp',
     layout: '/images/layouts/Banheiro-coletivo.webp',
-    photos: ['/images/BR-banheiro-01.webp'],
+    photos: ['/images/BR-banheiro-01.webp', '/images/gallery/banheiro-exterior.webp', '/images/gallery/banheiro-interior.webp', '/images/gallery/banheiro-detalhe.webp'],
   },
   {
     slug: 'deposito',
@@ -26,7 +26,7 @@ export const CONTAINERS: Container[] = [
     features: ['Grande capacidade', 'Porta dupla', 'Piso reforçado', 'Alta resistência'],
     image: '/images/BR-deposito.webp',
     layout: '/images/layouts/Deposito-porta-dupla.webp',
-    photos: ['/images/BR-deposito.webp'],
+    photos: ['/images/BR-deposito.webp', '/images/gallery/deposito-exterior.webp', '/images/gallery/deposito-interior.webp'],
   },
   {
     slug: 'escritorio-com-wc',
@@ -35,7 +35,7 @@ export const CONTAINERS: Container[] = [
     features: ['Banheiro integrado', 'Ar-condicionado', 'Revestimento em PVC', 'Iluminação inclusa'],
     image: '/images/BR-escritorio_com_wc.webp',
     layout: '/images/layouts/Escritorio-com-banheiro.webp',
-    photos: ['/images/BR-escritorio_com_wc.webp'],
+    photos: ['/images/BR-escritorio_com_wc.webp', '/images/gallery/escritorio-com-wc-interior.webp', '/images/gallery/escritorio-com-wc-banheiro.webp'],
   },
   {
     slug: 'escritorio-sem-wc',
@@ -44,16 +44,16 @@ export const CONTAINERS: Container[] = [
     features: ['Ar-condicionado', 'Revestimento em PVC', 'Janelas amplas', 'Iluminação inclusa'],
     image: '/images/BR-escritorio_sem_wc.webp',
     layout: '/images/layouts/Escritorio-sem-banheiro.webp',
-    photos: ['/images/BR-escritorio_sem_wc.webp'],
+    photos: ['/images/BR-escritorio_sem_wc.webp', '/images/gallery/escritorio-sem-wc-exterior.webp', '/images/gallery/escritorio-sem-wc-interior.webp'],
   },
   {
     slug: 'modulo-escritorio-sem-wc',
     name: 'Módulo Escritório',
     description: 'Solução modular leve e versátil para escritório em canteiro de obras. Estrutura compacta de fácil instalação e remoção, ideal para espaços menores ou locações de curta duração. Revestimento interno, iluminação e ar-condicionado inclusos.',
     features: ['Ar-condicionado', 'Revestimento interno', 'Iluminação inclusa', 'Fácil instalação', 'Estrutura leve'],
-    image: '/images/BR-escritorio_sem_wc.webp',
-    layout: '',
-    photos: [],
+    image: '/images/modulo-escritorio.webp',
+    layout: '/images/layouts/Escritorio-sem-banheiro.webp',
+    photos: ['/images/modulo-escritorio.webp', '/images/gallery/modulo-exterior.webp', '/images/gallery/modulo-interior-1.webp', '/images/gallery/modulo-interior-2.webp'],
     badges: ['Módulo', 'Novidade'],
   },
   {
