@@ -48,7 +48,7 @@ export const CONTAINERS: Container[] = [
   },
   {
     slug: 'modulo-escritorio-sem-wc',
-    name: 'Escritório s/ WC',
+    name: 'Módulo Escritório',
     description: 'Solução modular leve e versátil para escritório em canteiro de obras. Estrutura compacta de fácil instalação e remoção, ideal para espaços menores ou locações de curta duração. Revestimento interno, iluminação e ar-condicionado inclusos.',
     features: ['Ar-condicionado', 'Revestimento interno', 'Iluminação inclusa', 'Fácil instalação', 'Estrutura leve'],
     image: '/images/BR-escritorio_sem_wc.webp',
