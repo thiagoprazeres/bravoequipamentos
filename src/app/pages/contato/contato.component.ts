@@ -46,7 +46,7 @@ export class ContatoComponent {
     this.meta.updateTag({ property: 'og:title', content: 'Fale Conosco | Bravo Equipamentos' });
     this.meta.updateTag({ property: 'og:description', content: 'Solicite orçamento gratuito para containers em Recife, PE.' });
     this.meta.updateTag({ property: 'og:url',   content: 'https://bravoequipamentos.com/fale-conosco' });
-    this.meta.updateTag({ property: 'og:image', content: 'https://bravoequipamentos.com/images/BR-stand-de-vendas.jpg' });
+    this.meta.updateTag({ property: 'og:image', content: 'https://bravoequipamentos.com/images/BR-stand-de-vendas.webp' });
   }
 
   readonly Mail = Mail;

@@ -28,7 +28,7 @@ export class HomeComponent {
     this.meta.updateTag({ property: 'og:title', content: 'Bravo Equipamentos | Containers em Recife' });
     this.meta.updateTag({ property: 'og:description', content: 'Containers para locação e venda em Recife e PE. Entrega rápida e preço justo.' });
     this.meta.updateTag({ property: 'og:url',   content: 'https://bravoequipamentos.com/' });
-    this.meta.updateTag({ property: 'og:image', content: 'https://bravoequipamentos.com/images/BR-stand-de-vendas.jpg' });
+    this.meta.updateTag({ property: 'og:image', content: 'https://bravoequipamentos.com/images/BR-stand-de-vendas.webp' });
 
   }
 

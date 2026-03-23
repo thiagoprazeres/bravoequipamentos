@@ -57,7 +57,7 @@ export class StandDeVendasComponent {
     this.meta.updateTag({ property: 'og:title',       content: 'Stand de Vendas em Container | Bravo Equipamentos' });
     this.meta.updateTag({ property: 'og:description', content: 'Stand de Vendas em container moderno, econômico e rápido. Entrega em Recife e PE.' });
     this.meta.updateTag({ property: 'og:url',         content: 'https://bravoequipamentos.com/stand-de-vendas' });
-    this.meta.updateTag({ property: 'og:image',       content: 'https://bravoequipamentos.com/images/stand-exterior-02.jpg' });
+    this.meta.updateTag({ property: 'og:image',       content: 'https://bravoequipamentos.com/images/stand-exterior-02.webp' });
   }
 
   features = [
@@ -93,8 +93,8 @@ export class StandDeVendasComponent {
   ];
 
   gallery = [
-    { src: '/images/stand-exterior-01.jpg', alt: 'Stand de vendas com frente de vidro em obra' },
-    { src: '/images/stand-exterior-02.jpg', alt: 'Stand de vendas amarelo com vitrine em canteiro' },
-    { src: '/images/stand-exterior-03.jpg', alt: 'Stand de vendas em operação com fachada personalizada' },
+    { src: '/images/stand-exterior-01.webp', alt: 'Stand de vendas com frente de vidro em obra' },
+    { src: '/images/stand-exterior-02.webp', alt: 'Stand de vendas amarelo com vitrine em canteiro' },
+    { src: '/images/stand-exterior-03.webp', alt: 'Stand de vendas em operação com fachada personalizada' },
   ];
 }

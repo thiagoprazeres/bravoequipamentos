@@ -22,7 +22,7 @@ export class SobreComponent {
     this.meta.updateTag({ property: 'og:title', content: 'Sobre Nós | Bravo Equipamentos' });
     this.meta.updateTag({ property: 'og:description', content: 'Há mais de 10 anos fornecendo containers de qualidade em Pernambuco.' });
     this.meta.updateTag({ property: 'og:url',   content: 'https://bravoequipamentos.com/sobre-a-bravo' });
-    this.meta.updateTag({ property: 'og:image', content: 'https://bravoequipamentos.com/images/BR-stand-de-vendas.jpg' });
+    this.meta.updateTag({ property: 'og:image', content: 'https://bravoequipamentos.com/images/BR-stand-de-vendas.webp' });
 
   }
 
