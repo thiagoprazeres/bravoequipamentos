@@ -46,7 +46,7 @@ Site institucional da **Bravo Equipamentos**, empresa de locação e venda de co
 | Boas Práticas | **100** |
 | Performance | **pendente** — ver nota abaixo |
 
-> **Performance local vs. produção:** o Lighthouse medido em `localhost` captura o LCP em ~5 s porque a hero image é servida de `bravoequipamentos.com` (cross-origin). Em produção, com as imagens auto-hospedadas no mesmo domínio e em formato WebP/AVIF com dimensões explícitas, o LCP cai para ~1–1,5 s e o score sobe substancialmente. A medição definitiva deve ser feita pós-deploy com o Lighthouse do Chrome DevTools ou [PageSpeed Insights](https://pagespeed.web.dev).
+> **Performance:** todas as imagens estão locais em `/public/images/` no formato WebP (convertidas com `cwebp` q85). O LCP deve situar-se em ~1–1,5 s em produção. Medir com [PageSpeed Insights](https://pagespeed.web.dev) após o deploy.
 
 ### SEO & Metadados
 - Canonical URL por página via `CanonicalService`
@@ -64,13 +64,14 @@ Site institucional da **Bravo Equipamentos**, empresa de locação e venda de co
 
 ### Bundle (produção)
 
-| Chunk | Tamanho raw | Gzip |
-|---|---|---|
-| `main.js` (inicial, todas as rotas) | 17.5 kB | 4.8 kB |
-| `home-component` *(lazy — inclui GSAP)* | 101 kB | 33 kB |
-| `contato-component` *(lazy)* | 59 kB | 15 kB |
-| `stand-de-vendas-component` *(lazy)* | 20 kB | 6 kB |
-| `containers-component` *(lazy)* | 17 kB | 5 kB |
+| Chunk | Tamanho raw |
+|---|---|
+| `main.js` (inicial) | 46 kB |
+| `home-component` *(lazy — inclui GSAP)* | 86 kB |
+| `stand-de-vendas-component` *(lazy)* | 63 kB |
+| `containers-component` *(lazy)* | 49 kB |
+| `contato-component` *(lazy)* | 47 kB |
+| `clientes-component` *(lazy)* | 30 kB |
 
 ---
 
@@ -101,7 +102,7 @@ src/
 │   │   │   ├── header/
 │   │   │   └── footer/
 │   │   ├── data/
-│   │   │   └── containers.data.ts     # Fonte única dos 8 produtos (CONTAINERS[])
+│   │   │   └── containers.data.ts     # Fonte única dos 7 produtos (CONTAINERS[])
 │   │   ├── models/
 │   │   │   └── container.model.ts     # Interface Container (slug, name, photos…)
 │   │   └── services/
@@ -117,9 +118,17 @@ src/
 │   ├── app.routes.ts                  # Lazy loading por rota
 │   └── app.ts                         # App root + scroll progress
 ├── public/
+│   ├── images/                        # Imagens locais em WebP (cwebp q85)
+│   │   ├── gallery/                   # Fotos extras p/ lightbox (extraídas do PDF)
+│   │   ├── layouts/                   # Plantas baixas dos containers
+│   │   └── LOGOMARCAS/                # Logos de clientes (87 arquivos)
 │   ├── robots.txt
 │   ├── sitemap.xml
 │   └── logos/
+├── scripts/
+│   └── migrate-images.sh              # Script de download + conversão WebP
+├── insumos/
+│   └── fotos/                         # Imagens brutas extraídas do PDF (não versionadas)
 └── styles.css                         # Estilos globais + animações
 ```
 
@@ -135,4 +144,5 @@ src/
 - Sem `CommonModule` em nenhum componente
 - Formulários com **Reactive Forms** (`FormGroup`, `FormControl`, `Validators`)
 - Entidade `Container` modelada em `core/models/` com fonte única de dados em `core/data/`
-- Catálogo com 8 produtos identificados por `slug` — badges, fotos e plantas configuráveis por dado
+- Catálogo com **7 produtos** identificados por `slug` — `badges[]`, `photos[]` e `layout` configuráveis por dado
+- Todas as imagens locais em `/public/images/` (WebP); fotos de galeria em `/public/images/gallery/`
