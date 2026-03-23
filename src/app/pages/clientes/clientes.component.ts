@@ -2,6 +2,7 @@ import { Component, signal, computed, ChangeDetectionStrategy, inject } from '@a
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
+import { CanonicalService } from '../../core/services/canonical.service';
 import { LucideAngularModule, Quote, Star } from 'lucide-angular';
 
 interface Client {
@@ -18,10 +19,12 @@ const BASE = 'https://bravoequipamentos.com/images/LOGOMARCAS';
   templateUrl: './clientes.component.html'
 })
 export class ClientesComponent {
-  private readonly title = inject(Title);
-  private readonly meta = inject(Meta);
+  private readonly title     = inject(Title);
+  private readonly meta      = inject(Meta);
+  private readonly canonical = inject(CanonicalService);
 
   constructor() {
+    this.canonical.set('https://bravoequipamentos.com/clientes');
     this.title.setTitle('Nossos Clientes | Bravo Equipamentos');
     this.meta.updateTag({ name: 'description', content: '+87 empresas de construção, indústria, governo e saúde confiam na Bravo Equipamentos em Pernambuco.' });
     this.meta.updateTag({ property: 'og:title', content: 'Nossos Clientes | Bravo Equipamentos' });

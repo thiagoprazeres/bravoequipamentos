@@ -1,8 +1,8 @@
 import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { LogoAnimComponent } from '../../core/components/logo-anim/logo-anim.component';
-import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
+import { CanonicalService } from '../../core/services/canonical.service';
 import {
   LucideAngularModule,
   ShoppingCart, Home, Wrench, CheckCircle2, Users, Clock,
@@ -13,13 +13,15 @@ import {
 @Component({
   selector: 'app-home',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, RouterLink, LucideAngularModule, LogoAnimComponent],
+  imports: [RouterLink, LucideAngularModule, LogoAnimComponent],
   templateUrl: './home.component.html'
 })
 export class HomeComponent {
-  private readonly title   = inject(Title);
-  private readonly meta    = inject(Meta);
+  private readonly title     = inject(Title);
+  private readonly meta      = inject(Meta);
+  private readonly canonical = inject(CanonicalService);
   constructor() {
+    this.canonical.set('https://bravoequipamentos.com/');
     this.title.setTitle('Bravo Equipamentos | Locação e Venda de Containers em Recife');
     this.meta.updateTag({ name: 'description', content: 'Containers para locação e venda em Recife e PE. Escritórios, almoxarifados, sanitários e mais. Entrega em 24-48h. Solicite orçamento grátis!' });
     this.meta.updateTag({ property: 'og:title', content: 'Bravo Equipamentos | Containers em Recife' });

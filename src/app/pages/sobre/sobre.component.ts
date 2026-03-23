@@ -1,20 +1,22 @@
 import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
+import { CanonicalService } from '../../core/services/canonical.service';
 import { LucideAngularModule, Award, Users, Clock, CheckCircle2, Target, Eye } from 'lucide-angular';
 
 @Component({
   selector: 'app-sobre',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, RouterLink, LucideAngularModule],
+  imports: [RouterLink, LucideAngularModule],
   templateUrl: './sobre.component.html'
 })
 export class SobreComponent {
-  private readonly title = inject(Title);
-  private readonly meta  = inject(Meta);
+  private readonly title     = inject(Title);
+  private readonly meta      = inject(Meta);
+  private readonly canonical = inject(CanonicalService);
 
   constructor() {
+    this.canonical.set('https://bravoequipamentos.com/sobre-a-bravo');
     this.title.setTitle('Sobre Nós | Bravo Equipamentos');
     this.meta.updateTag({ name: 'description', content: 'Há mais de 10 anos fornecendo containers de qualidade em Pernambuco. Conheça a história e os valores da Bravo Equipamentos.' });
     this.meta.updateTag({ property: 'og:title', content: 'Sobre Nós | Bravo Equipamentos' });

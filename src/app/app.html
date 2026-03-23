@@ -30,9 +30,13 @@
   }
 }
 </script>
+<a href="#main-content"
+   class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-9999 focus:bg-bravo-yellow focus:text-bravo-navy focus:font-bold focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg">
+  Ir para o conteúdo principal
+</a>
 <div class="scroll-progress" [style.width.%]="scrollPct()" aria-hidden="true"></div>
 <app-header />
-<main class="main-content" [class.page-enter]="pageEnter()">
+<main id="main-content" class="main-content" [class.page-enter]="pageEnter()">
   <router-outlet />
 </main>
 <app-footer />

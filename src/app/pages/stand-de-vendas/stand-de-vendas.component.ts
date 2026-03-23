@@ -1,5 +1,6 @@
 import { Component, inject, ChangeDetectionStrategy, signal, afterNextRender, viewChild, ElementRef } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
+import { CanonicalService } from '../../core/services/canonical.service';
 import { LucideAngularModule, Phone, CheckCircle2, Clock, Truck, Shield, ChevronDown, Zap, Star } from 'lucide-angular';
 
 @Component({
@@ -9,8 +10,9 @@ import { LucideAngularModule, Phone, CheckCircle2, Clock, Truck, Shield, Chevron
   templateUrl: './stand-de-vendas.component.html'
 })
 export class StandDeVendasComponent {
-  private readonly title = inject(Title);
-  private readonly meta  = inject(Meta);
+  private readonly title     = inject(Title);
+  private readonly meta      = inject(Meta);
+  private readonly canonical = inject(CanonicalService);
   private readonly galleryGrid = viewChild<ElementRef>('galleryGrid');
 
   readonly Phone          = Phone;
@@ -31,6 +33,7 @@ export class StandDeVendasComponent {
   }
 
   constructor() {
+    this.canonical.set('https://bravoequipamentos.com/stand-de-vendas');
     afterNextRender(() => {
       const gallery = this.galleryGrid()?.nativeElement as HTMLElement | undefined;
       if (gallery) {

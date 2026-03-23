@@ -2,6 +2,7 @@ import { Component, inject, ChangeDetectionStrategy, signal, viewChild, ElementR
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
+import { CanonicalService } from '../../core/services/canonical.service';
 import { LucideAngularModule, Check, Zap, Wrench } from 'lucide-angular';
 
 @Component({
@@ -11,8 +12,9 @@ import { LucideAngularModule, Check, Zap, Wrench } from 'lucide-angular';
   templateUrl: './containers.component.html'
 })
 export class ContainersComponent {
-  private readonly title = inject(Title);
-  private readonly meta = inject(Meta);
+  private readonly title     = inject(Title);
+  private readonly meta      = inject(Meta);
+  private readonly canonical = inject(CanonicalService);
 
   private readonly platformId = inject(PLATFORM_ID);
   private readonly dialogRef  = viewChild<ElementRef<HTMLDialogElement>>('layoutDialog');
@@ -33,6 +35,7 @@ export class ContainersComponent {
 
 
   constructor() {
+    this.canonical.set('https://bravoequipamentos.com/containers');
     this.title.setTitle('Containers para Locação e Venda | Bravo Equipamentos');
     this.meta.updateTag({ name: 'description', content: 'Catálogo completo de containers: escritório, almoxarifado, sanitário, vestíário e mais. Locação e venda em Recife e região metropolitana.' });
     this.meta.updateTag({ property: 'og:title', content: 'Containers para Locação e Venda | Bravo Equipamentos' });
