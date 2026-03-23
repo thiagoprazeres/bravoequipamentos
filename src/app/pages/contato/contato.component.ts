@@ -1,5 +1,4 @@
 import { Component, inject, ChangeDetectionStrategy, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Title, Meta } from '@angular/platform-browser';
 import { CanonicalService } from '../../core/services/canonical.service';
@@ -10,7 +9,7 @@ import type { MaskitoOptions } from '@maskito/core';
 @Component({
   selector: 'app-contato',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, ReactiveFormsModule, LucideAngularModule, MaskitoDirective],
+  imports: [ReactiveFormsModule, LucideAngularModule, MaskitoDirective],
   templateUrl: './contato.component.html'
 })
 export class ContatoComponent {

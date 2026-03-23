@@ -1,13 +1,12 @@
 import { Component, signal, ChangeDetectionStrategy, afterNextRender } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { CommonModule } from '@angular/common';
 import { LucideAngularModule, Menu, X, Phone } from 'lucide-angular';
 import gsap from 'gsap';
 
 @Component({
   selector: 'app-header',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, RouterLink, RouterLinkActive, LucideAngularModule],
+  imports: [RouterLink, RouterLinkActive, LucideAngularModule],
   templateUrl: './header.component.html'
 })
 export class HeaderComponent {

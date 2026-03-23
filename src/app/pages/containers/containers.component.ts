@@ -1,5 +1,5 @@
 import { Component, inject, ChangeDetectionStrategy, signal, viewChild, ElementRef, PLATFORM_ID } from '@angular/core';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
 import { CanonicalService } from '../../core/services/canonical.service';
@@ -8,7 +8,7 @@ import { LucideAngularModule, Check, Zap, Wrench } from 'lucide-angular';
 @Component({
   selector: 'app-containers',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, RouterLink, LucideAngularModule],
+  imports: [RouterLink, LucideAngularModule],
   templateUrl: './containers.component.html'
 })
 export class ContainersComponent {

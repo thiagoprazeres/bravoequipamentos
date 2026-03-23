@@ -1,5 +1,4 @@
 import { Component, signal, computed, ChangeDetectionStrategy, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
 import { CanonicalService } from '../../core/services/canonical.service';
@@ -15,7 +14,7 @@ const BASE = 'https://bravoequipamentos.com/images/LOGOMARCAS';
 @Component({
   selector: 'app-clientes',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, RouterLink, LucideAngularModule],
+  imports: [RouterLink, LucideAngularModule],
   templateUrl: './clientes.component.html'
 })
 export class ClientesComponent {
