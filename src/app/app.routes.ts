@@ -23,7 +23,7 @@ export const routes: Routes = [
     path: 'containers',
     title: 'Tipos de Container | Bravo Equipamentos — Recife-PE',
     data: {
-      description: 'Conheça nossos modelos: almoxarifado, escritório com e sem WC, banheiro coletivo, vestiário e stand de vendas. Containers para locação e venda em Recife e região.',
+      description: 'Conheça nossos modelos: almoxarifado, escritório com e sem WC, banheiro coletivo, módulo escritório e stand de vendas. Containers para locação e venda em Recife e região.',
       ogUrl: 'https://bravoequipamentos.com/containers'
     },
     loadComponent: () => import('./pages/containers/containers.component').then(m => m.ContainersComponent)
