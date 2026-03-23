@@ -1,7 +1,6 @@
 import { Component, inject, ChangeDetectionStrategy, signal, afterNextRender, viewChild, ElementRef } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { LucideAngularModule, Phone, CheckCircle2, Clock, Truck, Shield, ChevronDown, Zap, Star } from 'lucide-angular';
-import { GsapService } from '../../core/services/gsap.service';
 
 @Component({
   selector: 'app-stand-de-vendas',
@@ -12,11 +11,7 @@ import { GsapService } from '../../core/services/gsap.service';
 export class StandDeVendasComponent {
   private readonly title = inject(Title);
   private readonly meta  = inject(Meta);
-  private readonly gsap  = inject(GsapService);
-
-  private readonly magneticCta  = viewChild<ElementRef>('magneticCta');
-  private readonly heroImg      = viewChild<ElementRef>('heroImg');
-  private readonly galleryGrid  = viewChild<ElementRef>('galleryGrid');
+  private readonly galleryGrid = viewChild<ElementRef>('galleryGrid');
 
   readonly Phone          = Phone;
   readonly CheckCircle2   = CheckCircle2;
@@ -37,12 +32,6 @@ export class StandDeVendasComponent {
 
   constructor() {
     afterNextRender(() => {
-      const cta = this.magneticCta()?.nativeElement as HTMLElement | undefined;
-      if (cta) this.gsap.magneticHover(cta, 0.3);
-
-      const img = this.heroImg()?.nativeElement as HTMLElement | undefined;
-      if (img) this.gsap.parallax(img, 0.12);
-
       const gallery = this.galleryGrid()?.nativeElement as HTMLElement | undefined;
       if (gallery) {
         Promise.all([
@@ -65,6 +54,7 @@ export class StandDeVendasComponent {
     this.meta.updateTag({ property: 'og:title',       content: 'Stand de Vendas em Container | Bravo Equipamentos' });
     this.meta.updateTag({ property: 'og:description', content: 'Stand de Vendas em container moderno, econômico e rápido. Entrega em Recife e PE.' });
     this.meta.updateTag({ property: 'og:url',         content: 'https://bravoequipamentos.com/stand-de-vendas' });
+    this.meta.updateTag({ property: 'og:image',       content: 'https://bravoequipamentos.com/images/stand-exterior-02.jpg' });
   }
 
   features = [

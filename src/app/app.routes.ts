@@ -57,6 +57,7 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: ''
+    title: 'Página não encontrada | Bravo Equipamentos',
+    loadComponent: () => import('./pages/not-found/not-found.component').then(m => m.NotFoundComponent)
   }
 ];

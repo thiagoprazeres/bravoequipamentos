@@ -26,7 +26,8 @@ export class ClientesComponent {
     this.meta.updateTag({ name: 'description', content: '+87 empresas de construção, indústria, governo e saúde confiam na Bravo Equipamentos em Pernambuco.' });
     this.meta.updateTag({ property: 'og:title', content: 'Nossos Clientes | Bravo Equipamentos' });
     this.meta.updateTag({ property: 'og:description', content: '+87 empresas confiam na Bravo Equipamentos em Pernambuco.' });
-    this.meta.updateTag({ property: 'og:url', content: 'https://bravoequipamentos.com/clientes' });
+    this.meta.updateTag({ property: 'og:url',   content: 'https://bravoequipamentos.com/clientes' });
+    this.meta.updateTag({ property: 'og:image', content: 'https://bravoequipamentos.com/images/BR-stand-de-vendas.jpg' });
   }
 
   readonly Quote = Quote;

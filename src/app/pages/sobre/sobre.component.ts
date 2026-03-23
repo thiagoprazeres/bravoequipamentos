@@ -1,9 +1,8 @@
-import { Component, inject, ChangeDetectionStrategy, afterNextRender, viewChild, ElementRef } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
 import { LucideAngularModule, Award, Users, Clock, CheckCircle2, Target, Eye } from 'lucide-angular';
-import { GsapService } from '../../core/services/gsap.service';
 
 @Component({
   selector: 'app-sobre',
@@ -12,29 +11,17 @@ import { GsapService } from '../../core/services/gsap.service';
   templateUrl: './sobre.component.html'
 })
 export class SobreComponent {
-  private readonly title  = inject(Title);
-  private readonly meta   = inject(Meta);
-  private readonly gsap   = inject(GsapService);
-
-  private readonly statsGrid = viewChild<ElementRef>('statsGrid');
+  private readonly title = inject(Title);
+  private readonly meta  = inject(Meta);
 
   constructor() {
     this.title.setTitle('Sobre Nós | Bravo Equipamentos');
     this.meta.updateTag({ name: 'description', content: 'Há mais de 10 anos fornecendo containers de qualidade em Pernambuco. Conheça a história e os valores da Bravo Equipamentos.' });
     this.meta.updateTag({ property: 'og:title', content: 'Sobre Nós | Bravo Equipamentos' });
     this.meta.updateTag({ property: 'og:description', content: 'Há mais de 10 anos fornecendo containers de qualidade em Pernambuco.' });
-    this.meta.updateTag({ property: 'og:url', content: 'https://bravoequipamentos.com/sobre-a-bravo' });
+    this.meta.updateTag({ property: 'og:url',   content: 'https://bravoequipamentos.com/sobre-a-bravo' });
+    this.meta.updateTag({ property: 'og:image', content: 'https://bravoequipamentos.com/images/BR-stand-de-vendas.jpg' });
 
-    afterNextRender(() => {
-      const grid = this.statsGrid()?.nativeElement as HTMLElement | undefined;
-      if (grid) {
-        grid.querySelectorAll<HTMLElement>('.stat-counter').forEach(el => {
-          const end    = Number(el.dataset['countEnd']    ?? 0);
-          const suffix = String(el.dataset['countSuffix'] ?? '');
-          this.gsap.countUp(el, end, { suffix });
-        });
-      }
-    });
   }
 
   readonly Award = Award;

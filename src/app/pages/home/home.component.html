@@ -30,7 +30,7 @@
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 animate-fade-in-up [animation-delay:550ms]">
-          <a #magneticCta routerLink="/fale-conosco"
+          <a routerLink="/fale-conosco"
              class="btn-sheen group flex items-center gap-3 bg-bravo-yellow text-bravo-navy font-bold text-base px-8 py-4 rounded-lg hover:bg-bravo-gold transition-all duration-200 hover:shadow-xl hover:shadow-bravo-yellow/30 hover:-translate-y-0.5">
             Solicitar Orçamento Gratuito
             <lucide-icon [img]="ArrowRight" [size]="18" class="group-hover:translate-x-1 transition-transform duration-200"></lucide-icon>
@@ -51,7 +51,7 @@
 
       <!-- Right: photo -->
       <div class="hidden lg:flex items-center justify-center animate-slide-in-right [animation-delay:400ms]">
-        <div #heroPhoto class="relative w-full max-w-lg">
+        <div class="relative w-full max-w-lg">
           <div class="absolute -inset-4 bg-bravo-yellow/10 rounded-2xl blur-2xl"></div>
           <img src="https://bravoequipamentos.com/images/005.png"
                alt="Containers Bravo Equipamentos"
@@ -72,11 +72,9 @@
   ═══════════════════════════════════════════ -->
   <section class="bg-bravo-yellow">
     <div class="max-w-7xl mx-auto px-6 py-8">
-      <div #statsGrid class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
         <div *ngFor="let stat of stats" class="text-center scroll-in">
-          <div class="stat-counter text-4xl font-black text-bravo-navy leading-none mb-1"
-               [attr.data-count-end]="stat.countEnd"
-               [attr.data-count-suffix]="stat.countSuffix">{{ stat.value }}</div>
+          <div class="text-4xl font-black text-bravo-navy leading-none mb-1">{{ stat.value }}</div>
           <div class="text-sm font-medium text-bravo-navy/60 uppercase tracking-wide">{{ stat.label }}</div>
         </div>
       </div>
@@ -94,8 +92,8 @@
         <p class="text-gray-500 text-lg max-w-xl mx-auto">Do planejamento à entrega, cobrimos todas as necessidades da sua obra.</p>
       </div>
 
-      <div #servicesGrid class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div *ngFor="let service of services" class="relative group bg-white border border-gray-200 rounded-2xl p-8 hover:border-bravo-yellow hover:shadow-lg hover:shadow-bravo-yellow/10 transition-all duration-300 hover:-translate-y-1 shadow-sm">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div *ngFor="let service of services" class="relative group scroll-in bg-white border border-gray-200 rounded-2xl p-8 hover:border-bravo-yellow hover:shadow-lg hover:shadow-bravo-yellow/10 transition-all duration-300 hover:-translate-y-1 shadow-sm">
           <div *ngIf="service.badge" class="absolute top-6 right-6 bg-bravo-yellow text-bravo-navy text-xs font-bold px-3 py-1 rounded-full">
             {{ service.badge }}
           </div>
@@ -151,9 +149,9 @@
         <p class="text-gray-500 text-lg max-w-xl mx-auto">Almoxarifados, banheiros, escritórios, vestiários e muito mais. Todos em excelente estado.</p>
       </div>
 
-      <div #catalogGrid class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
         <a *ngFor="let type of containerTypes" routerLink="/containers"
-           class="group bg-white border border-gray-200 rounded-xl overflow-hidden hover:border-bravo-yellow hover:shadow-md transition-all duration-300 hover:-translate-y-1 block shadow-sm">
+           class="group scroll-in bg-white border border-gray-200 rounded-xl overflow-hidden hover:border-bravo-yellow hover:shadow-md transition-all duration-300 hover:-translate-y-1 block shadow-sm">
           <div class="aspect-video bg-gray-100 overflow-hidden">
             <img [src]="type.image" [alt]="type.name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           </div>
@@ -253,8 +251,8 @@
         <h2 class="text-4xl md:text-5xl font-black text-gray-900 scroll-reveal-heading">O Que Nossos Clientes<br>Dizem Sobre Nós</h2>
       </div>
 
-      <div #testimonialsGrid class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div *ngFor="let t of testimonials" class="bg-white border border-gray-200 rounded-2xl p-8 flex flex-col shadow-sm hover:shadow-md hover:border-bravo-yellow transition-all duration-300">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div *ngFor="let t of testimonials" class="scroll-in bg-white border border-gray-200 rounded-2xl p-8 flex flex-col shadow-sm hover:shadow-md hover:border-bravo-yellow transition-all duration-300">
           <!-- Stars -->
           <div class="flex gap-1 mb-5">
             <ng-container *ngFor="let s of [1,2,3,4,5]">

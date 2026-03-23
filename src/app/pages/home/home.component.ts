@@ -1,6 +1,5 @@
-import { Component, inject, ChangeDetectionStrategy, afterNextRender, ElementRef, viewChild } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { LogoAnimComponent } from '../../core/components/logo-anim/logo-anim.component';
-import { GsapService } from '../../core/services/gsap.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
@@ -20,53 +19,14 @@ import {
 export class HomeComponent {
   private readonly title   = inject(Title);
   private readonly meta    = inject(Meta);
-  private readonly gsap    = inject(GsapService);
-
-  private readonly heroPhoto        = viewChild<ElementRef>('heroPhoto');
-  private readonly magneticCta      = viewChild<ElementRef>('magneticCta');
-  private readonly statsGrid        = viewChild<ElementRef>('statsGrid');
-  private readonly servicesGrid     = viewChild<ElementRef>('servicesGrid');
-  private readonly catalogGrid      = viewChild<ElementRef>('catalogGrid');
-  private readonly testimonialsGrid = viewChild<ElementRef>('testimonialsGrid');
-
   constructor() {
     this.title.setTitle('Bravo Equipamentos | Locação e Venda de Containers em Recife');
     this.meta.updateTag({ name: 'description', content: 'Containers para locação e venda em Recife e PE. Escritórios, almoxarifados, sanitários e mais. Entrega em 24-48h. Solicite orçamento grátis!' });
     this.meta.updateTag({ property: 'og:title', content: 'Bravo Equipamentos | Containers em Recife' });
     this.meta.updateTag({ property: 'og:description', content: 'Containers para locação e venda em Recife e PE. Entrega rápida e preço justo.' });
-    this.meta.updateTag({ property: 'og:url', content: 'https://bravoequipamentos.com/' });
+    this.meta.updateTag({ property: 'og:url',   content: 'https://bravoequipamentos.com/' });
+    this.meta.updateTag({ property: 'og:image', content: 'https://bravoequipamentos.com/images/BR-stand-de-vendas.jpg' });
 
-    afterNextRender(() => this.#initMotion());
-  }
-
-  #initMotion(): void {
-    // ── Hero photo parallax ──────────────────────────────────────────────
-    const photoWrap = this.heroPhoto()?.nativeElement as HTMLElement | undefined;
-    if (photoWrap) this.gsap.parallax(photoWrap, 0.18);
-
-    // ── Primary CTA magnetic hover ───────────────────────────────────────
-    const ctaEl = this.magneticCta()?.nativeElement as HTMLElement | undefined;
-    if (ctaEl) this.gsap.magneticHover(ctaEl, 0.3);
-
-    // ── Stats count-up ───────────────────────────────────────────────────
-    const statsEl = this.statsGrid()?.nativeElement as HTMLElement | undefined;
-    if (statsEl) {
-      statsEl.querySelectorAll<HTMLElement>('.stat-counter').forEach(el => {
-        const end    = Number(el.dataset['countEnd']    ?? 0);
-        const suffix = String(el.dataset['countSuffix'] ?? '');
-        this.gsap.countUp(el, end, { suffix });
-      });
-    }
-
-    // ── GSAP stagger grids (replaces CSS scroll-in on individual cards) ──
-    const staggerGrid = (refEl: HTMLElement | undefined) => {
-      if (!refEl) return;
-      const cards = Array.from(refEl.querySelectorAll<HTMLElement>(':scope > *'));
-      this.gsap.staggerReveal(cards, refEl);
-    };
-    staggerGrid(this.servicesGrid()?.nativeElement);
-    staggerGrid(this.catalogGrid()?.nativeElement);
-    staggerGrid(this.testimonialsGrid()?.nativeElement);
   }
 
   readonly ShoppingCart = ShoppingCart;
