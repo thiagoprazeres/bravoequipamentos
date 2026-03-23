@@ -45,3 +45,6 @@ Thumbs.db
 
 # Local Netlify folder
 .netlify
+
+# Raw images extracted from PDF (use scripts/migrate-images.sh to regenerate)
+insumos/fotos/
