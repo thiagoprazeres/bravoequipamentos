@@ -79,11 +79,21 @@
                     }
                   </ul>
                 </div>
-                <a [routerLink]="container['route']"
-                   class="btn-sheen self-start inline-flex items-center gap-2 bg-bravo-yellow hover:bg-bravo-gold text-bravo-navy font-black px-6 py-3 rounded-xl transition-all duration-200">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  Ver página completa
-                </a>
+                <div class="flex flex-wrap items-center gap-3">
+                  @if (container.photos.length) {
+                    <button type="button" (click)="openPhotos(container)"
+                            class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 cursor-pointer"
+                            [attr.aria-label]="'Ver fotos do ' + container.name">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                      Ver fotos
+                    </button>
+                  }
+                  <a [routerLink]="container['route']"
+                     class="btn-sheen inline-flex items-center gap-2 bg-bravo-yellow hover:bg-bravo-gold text-bravo-navy font-black px-6 py-3 rounded-xl transition-all duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    Ver página completa
+                  </a>
+                </div>
               </div>
             </div>
           } @else {
@@ -94,14 +104,27 @@
                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                      [attr.loading]="$index < 3 ? 'eager' : 'lazy'"
                      [attr.fetchpriority]="$index === 0 ? 'high' : null">
-                @if (container.layout) {
-                  <button type="button" (click)="openLayout(container.layout, container.name)"
-                          class="absolute bottom-3 right-3 flex items-center gap-1.5 bg-bravo-navy/80 hover:bg-bravo-navy text-white text-xs font-semibold px-3 py-1.5 rounded-lg backdrop-blur-sm transition-all duration-200 cursor-pointer"
-                          [attr.aria-label]="'Ver layout do ' + container.name">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-                    Ver layout
-                  </button>
+                @if (container.badge) {
+                  <span class="absolute top-3 left-3 bg-bravo-navy text-bravo-yellow text-xs font-black uppercase tracking-widest px-3 py-1 rounded-full">{{ container.badge }}</span>
                 }
+                <div class="absolute bottom-3 right-3 flex items-center gap-2">
+                  @if (container.photos.length) {
+                    <button type="button" (click)="openPhotos(container)"
+                            class="flex items-center gap-1.5 bg-black/60 hover:bg-black/80 text-white text-xs font-semibold px-3 py-1.5 rounded-lg backdrop-blur-sm transition-all duration-200 cursor-pointer"
+                            [attr.aria-label]="'Ver fotos do ' + container.name">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                      Ver fotos
+                    </button>
+                  }
+                  @if (container.layout) {
+                    <button type="button" (click)="openLayout(container.layout, container.name)"
+                            class="flex items-center gap-1.5 bg-bravo-navy/80 hover:bg-bravo-navy text-white text-xs font-semibold px-3 py-1.5 rounded-lg backdrop-blur-sm transition-all duration-200 cursor-pointer"
+                            [attr.aria-label]="'Ver planta do ' + container.name">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                      Ver planta
+                    </button>
+                  }
+                </div>
               </div>
               <div class="p-8 border-t border-gray-100">
                 <h3 class="text-2xl font-bold text-gray-900 mb-3">{{ container.name }}</h3>
@@ -168,6 +191,9 @@
   </section>
 
 </div>
+
+<!-- Lightgallery root (single reusable element) -->
+<div #lgRoot></div>
 
 <!-- LAYOUT DIALOG FULLSCREEN -->
 <dialog #layoutDialog

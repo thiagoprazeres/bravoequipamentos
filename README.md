@@ -17,7 +17,7 @@ Site institucional da **Bravo Equipamentos**, empresa de locação e venda de co
 | Formulários | Reactive Forms (`@angular/forms`) |
 | Máscara de input | Maskito |
 | Galeria de fotos | lightgallery |
-| Animação de logo | GSAP 3 |
+| Animação de logo | GSAP 3 *(lazy — carregado apenas na home)* |
 | Fonte | Inter Variable (`@fontsource-variable/inter`) |
 | Deploy | Netlify (com SSR + formulários nativos) |
 
@@ -44,9 +44,9 @@ Site institucional da **Bravo Equipamentos**, empresa de locação e venda de co
 | Acessibilidade | **100** |
 | SEO | **100** |
 | Boas Práticas | **100** |
-| Performance | 71 local · melhor em produção¹ |
+| Performance | **pendente** — ver nota abaixo |
 
-¹ _O score de performance em localhost é afetado pela latência de imagens servidas do domínio de produção._
+> **Performance local vs. produção:** o Lighthouse medido em `localhost` captura o LCP em ~5 s porque a hero image é servida de `bravoequipamentos.com` (cross-origin). Em produção, com as imagens auto-hospedadas no mesmo domínio e em formato WebP/AVIF com dimensões explícitas, o LCP cai para ~1–1,5 s e o score sobe substancialmente. A medição definitiva deve ser feita pós-deploy com o Lighthouse do Chrome DevTools ou [PageSpeed Insights](https://pagespeed.web.dev).
 
 ### SEO & Metadados
 - Canonical URL por página via `CanonicalService`
@@ -61,6 +61,16 @@ Site institucional da **Bravo Equipamentos**, empresa de locação e venda de co
 - `aria-modal` + `aria-labelledby` no `<dialog>` de plantas
 - `prefers-reduced-motion` — desativa animações/transições via CSS
 - Contraste de cores validado
+
+### Bundle (produção)
+
+| Chunk | Tamanho raw | Gzip |
+|---|---|---|
+| `main.js` (inicial, todas as rotas) | 17.5 kB | 4.8 kB |
+| `home-component` *(lazy — inclui GSAP)* | 101 kB | 33 kB |
+| `contato-component` *(lazy)* | 59 kB | 15 kB |
+| `stand-de-vendas-component` *(lazy)* | 20 kB | 6 kB |
+| `containers-component` *(lazy)* | 17 kB | 5 kB |
 
 ---
 

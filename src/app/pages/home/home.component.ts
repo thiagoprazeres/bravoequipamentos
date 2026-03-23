@@ -106,7 +106,9 @@ export class HomeComponent {
     { name: 'Depósito',          image: 'https://bravoequipamentos.com/images/BR-deposito.jpg' },
     { name: 'Escritório c/ WC',  image: 'https://bravoequipamentos.com/images/BR-escritorio_com_wc.jpg' },
     { name: 'Escritório s/ WC',  image: 'https://bravoequipamentos.com/images/BR-escritorio_sem_wc.jpg' },
-    { name: 'Vestiário',         image: 'https://bravoequipamentos.com/images/page4_img6.jpg' }
+    { name: 'Vestiário',         image: 'https://bravoequipamentos.com/images/page4_img6.jpg' },
+    { name: 'Módulo - Escritório s/ WC', image: 'https://bravoequipamentos.com/images/BR-escritorio_sem_wc.jpg' },
+    { name: 'Stand de Vendas',           image: '/images/stand-exterior-03.jpg' },
   ];
 
   steps = [
