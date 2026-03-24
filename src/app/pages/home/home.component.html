@@ -147,7 +147,7 @@
     <div class="overflow-hidden marquee-fade">
       <div class="marquee-track" aria-hidden="true">
         @for (client of clients; track client.logo) {
-          <div class="mx-5 flex-shrink-0 w-36 h-16 flex items-center justify-center">
+          <div class="mx-5 shrink-0 w-36 h-16 flex items-center justify-center">
             <img
               [src]="client.logo"
               [alt]="client.category + ' cliente'"
@@ -157,7 +157,7 @@
           </div>
         }
         @for (client of clients; track client.logo + '_dup') {
-          <div class="mx-5 flex-shrink-0 w-36 h-16 flex items-center justify-center">
+          <div class="mx-5 shrink-0 w-36 h-16 flex items-center justify-center">
             <img
               [src]="client.logo"
               [alt]="client.category + ' cliente'"
