@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { CONTAINERS } from '../../core/data/containers.data';
+import { CLIENTS } from '../../core/data/clients.data';
 import { LogoAnimComponent } from '../../core/components/logo-anim/logo-anim.component';
 import { RouterLink } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
@@ -49,6 +50,9 @@ export class HomeComponent {
   readonly HardHat = HardHat;
   readonly Truck = Truck;
   readonly ClipboardCheck = ClipboardCheck;
+
+  readonly clientsRow1 = CLIENTS.slice(0, 44);
+  readonly clientsRow2 = CLIENTS.slice(44);
 
   stats = [
     { value: '10+',  label: 'Anos de Experiência', countEnd: 10,  countSuffix: '+' },
