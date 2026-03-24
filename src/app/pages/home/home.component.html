@@ -144,10 +144,9 @@
       </a>
     </div>
 
-    <div class="overflow-hidden marquee-fade space-y-4">
-      <!-- Row 1 — left direction -->
+    <div class="overflow-hidden marquee-fade">
       <div class="marquee-track" aria-hidden="true">
-        @for (client of clientsRow1; track client.logo) {
+        @for (client of clients; track client.logo) {
           <div class="mx-4 flex-shrink-0 w-28 h-14 flex items-center justify-center">
             <img
               [src]="client.logo"
@@ -157,31 +156,7 @@
             />
           </div>
         }
-        @for (client of clientsRow1; track client.logo + '_dup') {
-          <div class="mx-4 flex-shrink-0 w-28 h-14 flex items-center justify-center">
-            <img
-              [src]="client.logo"
-              [alt]="client.category + ' cliente'"
-              class="max-h-10 max-w-full object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-              loading="lazy"
-            />
-          </div>
-        }
-      </div>
-
-      <!-- Row 2 — right direction -->
-      <div class="marquee-track-reverse" aria-hidden="true">
-        @for (client of clientsRow2; track client.logo) {
-          <div class="mx-4 flex-shrink-0 w-28 h-14 flex items-center justify-center">
-            <img
-              [src]="client.logo"
-              [alt]="client.category + ' cliente'"
-              class="max-h-10 max-w-full object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-              loading="lazy"
-            />
-          </div>
-        }
-        @for (client of clientsRow2; track client.logo + '_dup') {
+        @for (client of clients; track client.logo + '_dup') {
           <div class="mx-4 flex-shrink-0 w-28 h-14 flex items-center justify-center">
             <img
               [src]="client.logo"

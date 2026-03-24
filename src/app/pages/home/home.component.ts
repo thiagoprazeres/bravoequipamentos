@@ -51,8 +51,7 @@ export class HomeComponent {
   readonly Truck = Truck;
   readonly ClipboardCheck = ClipboardCheck;
 
-  readonly clientsRow1 = CLIENTS.slice(0, 44);
-  readonly clientsRow2 = CLIENTS.slice(44);
+  readonly clients = CLIENTS;
 
   stats = [
     { value: '10+',  label: 'Anos de Experiência', countEnd: 10,  countSuffix: '+' },
