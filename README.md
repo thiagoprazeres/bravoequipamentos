@@ -102,9 +102,11 @@ src/
 │   │   │   ├── header/
 │   │   │   └── footer/
 │   │   ├── data/
-│   │   │   └── containers.data.ts     # Fonte única dos 7 produtos (CONTAINERS[])
+│   │   │   ├── containers.data.ts     # Fonte única dos 7 produtos (CONTAINERS[])
+│   │   │   └── clients.data.ts        # 87 logos de clientes (CLIENTS[])
 │   │   ├── models/
-│   │   │   └── container.model.ts     # Interface Container (slug, name, photos…)
+│   │   │   ├── container.model.ts     # Interface Container (slug, name, photos…)
+│   │   │   └── client.model.ts        # Interface Client (logo, category)
 │   │   └── services/
 │   │       └── canonical.service.ts   # Gerencia <link rel="canonical">
 │   ├── pages/
@@ -143,6 +145,7 @@ src/
 - Controle de fluxo nativo (`@for`, `@if`, `@switch`) — sem `*ngFor`/`*ngIf`
 - Sem `CommonModule` em nenhum componente
 - Formulários com **Reactive Forms** (`FormGroup`, `FormControl`, `Validators`)
-- Entidade `Container` modelada em `core/models/` com fonte única de dados em `core/data/`
+- Entidades `Container` e `Client` modeladas em `core/models/` com fonte única em `core/data/`
 - Catálogo com **7 produtos** identificados por `slug` — `badges[]`, `photos[]` e `layout` configuráveis por dado
+- **87 clientes** em `CLIENTS[]` — marquee na home e filtro por categoria em `/clientes`
 - Todas as imagens locais em `/public/images/` (WebP); fotos de galeria em `/public/images/gallery/`
