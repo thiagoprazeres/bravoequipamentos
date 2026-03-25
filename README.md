@@ -44,9 +44,18 @@ Site institucional da **Bravo Equipamentos**, empresa de locação e venda de co
 | Acessibilidade | **100** |
 | SEO | **100** |
 | Boas Práticas | **100** |
-| Performance | **pendente** — ver nota abaixo |
+| Performance | **88** |
 
-> **Performance:** todas as imagens estão locais em `/public/images/` no formato WebP (convertidas com `cwebp` q85). O LCP deve situar-se em ~1–1,5 s em produção. Medir com [PageSpeed Insights](https://pagespeed.web.dev) após o deploy.
+> **Performance:** todas as imagens estão locais em `/public/images/` no formato WebP (convertidas com `cwebp` q85, pós-processadas com auto-levels + unsharp mask via Pillow). Os 87 logos de clientes foram autocropados (sem espaço em branco excessivo). O LCP deve situar-se em ~1–1,5 s em produção. Medir com [PageSpeed Insights](https://pagespeed.web.dev) após o deploy.
+
+### Lighthouse — Antes × Depois
+
+| Categoria | bravoequipamentos.com (antes) | bravoequipamentos.netlify.app (depois) | Δ |
+|---|---|---|---|
+| Performance | 69 | **88** | +19 |
+| Accessibility | 57 | **96** | +39 |
+| Best Practices | 100 | **100** | = |
+| SEO | 91 | **100** | +9 |
 
 ### SEO & Metadados
 - Canonical URL por página via `CanonicalService`
@@ -67,11 +76,11 @@ Site institucional da **Bravo Equipamentos**, empresa de locação e venda de co
 | Chunk | Tamanho raw |
 |---|---|
 | `main.js` (inicial) | 46 kB |
-| `home-component` *(lazy — inclui GSAP)* | 86 kB |
+| `home-component` *(lazy — inclui GSAP)* | 92 kB |
 | `stand-de-vendas-component` *(lazy)* | 63 kB |
 | `containers-component` *(lazy)* | 49 kB |
 | `contato-component` *(lazy)* | 47 kB |
-| `clientes-component` *(lazy)* | 30 kB |
+| `clientes-component` *(lazy)* | 24 kB |
 
 ---
 
