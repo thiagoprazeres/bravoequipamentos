@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject, signal, afterNextRender } from '@angular/core';
 import { CONTAINERS } from '../../core/data/containers.data';
 import { CLIENTS } from '../../core/data/clients.data';
 import { LogoAnimComponent } from '../../core/components/logo-anim/logo-anim.component';
@@ -24,6 +24,23 @@ export class HomeComponent {
   private readonly canonical = inject(CanonicalService);
   constructor() {
     this.canonical.set('https://bravoequipamentos.com/');
+
+    afterNextRender(() => {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!prefersReduced) {
+        window.addEventListener('scroll', () => {
+          this.parallaxOffset.set(Math.min(window.scrollY * 0.25, 120));
+        }, { passive: true });
+      }
+      const statsEl = document.getElementById('stats-bar');
+      if (statsEl) {
+        const observer = new IntersectionObserver(entries => {
+          if (entries[0].isIntersecting) { this.animateCounters(); observer.disconnect(); }
+        }, { threshold: 0.5 });
+        observer.observe(statsEl);
+      }
+    });
+
     this.title.setTitle('Bravo Equipamentos | Locação e Venda de Containers em Recife');
     this.meta.updateTag({ name: 'description', content: 'Containers para locação e venda em Recife e PE. Escritórios, almoxarifados, sanitários e mais. Entrega em 24-48h. Solicite orçamento grátis!' });
     this.meta.updateTag({ property: 'og:title', content: 'Bravo Equipamentos | Containers em Recife' });
@@ -52,6 +69,8 @@ export class HomeComponent {
   readonly ClipboardCheck = ClipboardCheck;
 
   readonly clients = CLIENTS;
+
+  readonly parallaxOffset = signal(0);
 
   stats = [
     { value: '10+',  label: 'Anos de Experiência', countEnd: 10,  countSuffix: '+' },
@@ -103,6 +122,8 @@ export class HomeComponent {
       description: 'Profissionais técnicos com mais de 10 anos de experiência prontos para orientar seu projeto.'
     }
   ];
+
+  readonly animatedStats = signal(this.stats.map(s => ({ ...s, display: s.value })));
 
   readonly containerTypes = CONTAINERS;
 
@@ -176,5 +197,19 @@ export class HomeComponent {
 
   toggleFaq(index: number) {
     this.faqs[index].open = !this.faqs[index].open;
+  }
+
+  private animateCounters(): void {
+    const duration = 1800;
+    const start = performance.now();
+    const tick = (now: number) => {
+      const t = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      this.animatedStats.update(stats =>
+        stats.map(s => ({ ...s, display: Math.round(s.countEnd * eased) + s.countSuffix }))
+      );
+      if (t < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
   }
 }

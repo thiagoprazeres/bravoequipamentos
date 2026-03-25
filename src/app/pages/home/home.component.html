@@ -7,7 +7,8 @@
       src="/images/hero-bg.webp"
       alt=""
       aria-hidden="true"
-      class="absolute inset-0 w-full h-full object-cover object-center"
+      class="absolute inset-0 w-full h-full object-cover object-center scale-110 will-change-transform"
+      [style.transform]="'scale(1.1) translateY(' + parallaxOffset() + 'px)'"
       loading="eager"
       fetchpriority="high"
     />
@@ -118,13 +119,13 @@
   <!-- ═══════════════════════════════════════════
        STATS BAR
   ═══════════════════════════════════════════ -->
-  <section class="bg-bravo-yellow">
+  <section id="stats-bar" class="bg-bravo-yellow">
     <div class="max-w-7xl mx-auto px-6 py-8">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        @for (stat of stats; track stat.value) {
+        @for (stat of animatedStats(); track stat.label) {
           <div class="text-center scroll-in">
             <div class="text-4xl font-black text-bravo-navy leading-none mb-1">
-              {{ stat.value }}
+              {{ stat.display }}
             </div>
             <div class="text-sm font-medium text-bravo-navy/60 uppercase tracking-wide">
               {{ stat.label }}
@@ -710,4 +711,18 @@
       </p>
     </div>
   </section>
+
+  <!-- ═══════════════════════════════════════════
+       FLOATING CTA — mobile only
+  ═══════════════════════════════════════════ -->
+  <div class="fixed bottom-0 left-0 right-0 z-50 sm:hidden pb-safe">
+    <a
+      routerLink="/fale-conosco"
+      class="flex items-center justify-center gap-3 bg-bravo-yellow text-bravo-navy font-bold text-base px-6 py-4 shadow-2xl w-full"
+    >
+      <lucide-icon [img]="Phone" [size]="18"></lucide-icon>
+      Solicitar Orçamento Gratuito
+      <lucide-icon [img]="ArrowRight" [size]="16" class="ml-auto"></lucide-icon>
+    </a>
+  </div>
 </div>

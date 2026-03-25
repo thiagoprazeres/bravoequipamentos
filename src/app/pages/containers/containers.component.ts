@@ -6,11 +6,12 @@ import { CanonicalService } from '../../core/services/canonical.service';
 import { LucideAngularModule, Check, Zap, Wrench } from 'lucide-angular';
 import { Container } from '../../core/models/container.model';
 import { CONTAINERS } from '../../core/data/containers.data';
+import { BeforeAfterSliderComponent } from '../../core/components/before-after-slider/before-after-slider.component';
 
 @Component({
   selector: 'app-containers',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterLink, LucideAngularModule],
+  imports: [RouterLink, LucideAngularModule, BeforeAfterSliderComponent],
   templateUrl: './containers.component.html'
 })
 export class ContainersComponent {
@@ -81,4 +82,8 @@ export class ContainersComponent {
   readonly Wrench = Wrench;
 
   readonly containers: Container[] = CONTAINERS;
+
+  getInteriorPhoto(container: Container): string | null {
+    return container.photos.find(p => p.includes('interior')) ?? null;
+  }
 }

@@ -106,10 +106,18 @@
             <!-- ── Regular card ── -->
             <div class="group scroll-in bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:border-bravo-yellow hover:shadow-lg hover:shadow-bravo-yellow/10 transition-all duration-300 hover:-translate-y-1">
               <div class="relative h-64 bg-gray-100 overflow-hidden">
-                <img [src]="container.image" [alt]="container.name"
-                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                     [attr.loading]="$index < 3 ? 'eager' : 'lazy'"
-                     [attr.fetchpriority]="$index === 0 ? 'high' : null">
+                @if (getInteriorPhoto(container); as interior) {
+                  <app-before-after-slider
+                    class="h-full"
+                    [before]="container.image"
+                    [after]="interior"
+                  />
+                } @else {
+                  <img [src]="container.image" [alt]="container.name"
+                       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                       [attr.loading]="$index < 3 ? 'eager' : 'lazy'"
+                       [attr.fetchpriority]="$index === 0 ? 'high' : null">
+                }
 @if (container.badges?.length) {
                   <div class="absolute top-3 left-3 flex flex-wrap gap-1">
                     @for (badge of container.badges!; track badge) {

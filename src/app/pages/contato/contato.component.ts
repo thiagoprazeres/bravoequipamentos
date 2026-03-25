@@ -1,4 +1,4 @@
-import { Component, inject, ChangeDetectionStrategy, signal } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy, signal, afterNextRender } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Title, Meta } from '@angular/platform-browser';
 import { CanonicalService } from '../../core/services/canonical.service';
@@ -41,6 +41,28 @@ export class ContatoComponent {
 
   constructor() {
     this.canonical.set('https://bravoequipamentos.com/fale-conosco');
+
+    afterNextRender(async () => {
+      const L = await import('leaflet');
+      const map = L.map('coverage-map', { center: [-8.5, -38.0], zoom: 6, scrollWheelZoom: false, zoomControl: true });
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions" target="_blank">CARTO</a>',
+        subdomains: 'abcd', maxZoom: 20,
+      }).addTo(map);
+      const icon = L.divIcon({
+        html: `<div style="width:18px;height:18px;background:#F5C518;border:3px solid #0B2246;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,.35);"></div>`,
+        className: '',
+        iconSize: [18, 18],
+        iconAnchor: [9, 9],
+        popupAnchor: [0, -12],
+      });
+      L.marker([-8.173, -35.020], { icon })
+        .addTo(map)
+        .bindPopup('<strong style="color:#0B2246">Bravo Equipamentos</strong><br><span style="font-size:12px">Jaboatão dos Guararapes, PE</span>')
+        .openPopup();
+      L.circle([-8.5, -38.0], { radius: 1_100_000, color: '#F5C518', weight: 2, opacity: 0.5, fillColor: '#F5C518', fillOpacity: 0.06 }).addTo(map);
+    });
+
     this.title.setTitle('Fale Conosco | Bravo Equipamentos');
     this.meta.updateTag({ name: 'description', content: 'Entre em contato com a Bravo Equipamentos. Solicite orçamento gratuito para locação ou venda de containers em Recife, PE.' });
     this.meta.updateTag({ property: 'og:title', content: 'Fale Conosco | Bravo Equipamentos' });

@@ -20,6 +20,9 @@ export class App {
 
   constructor() {
     afterNextRender(() => {
+      // Initial page enter animation
+      requestAnimationFrame(() => this.pageEnter.set(true));
+
       // Scroll progress bar
       const onScroll = () => {
         const max = document.body.scrollHeight - window.innerHeight;
