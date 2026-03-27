@@ -20,15 +20,18 @@ export class ContatoComponent {
   readonly status = signal<'idle' | 'loading' | 'success' | 'error'>('idle');
 
   readonly form = new FormGroup({
-    name:    new FormControl('', { nonNullable: true, validators: [Validators.required, Validators.minLength(2)] }),
-    email:   new FormControl('', { nonNullable: true, validators: [Validators.required, Validators.email] }),
-    phone:   new FormControl('', { nonNullable: true }),
-    message: new FormControl('', { nonNullable: true, validators: [Validators.required, Validators.minLength(10)] }),
+    nome:     new FormControl('', { nonNullable: true, validators: [Validators.required, Validators.minLength(2)] }),
+    empresa:  new FormControl('', { nonNullable: true }),
+    email:    new FormControl('', { nonNullable: true, validators: [Validators.required, Validators.email] }),
+    telefone: new FormControl('', { nonNullable: true }),
+    mensagem: new FormControl('', { nonNullable: true, validators: [Validators.required, Validators.minLength(10)] }),
   });
 
-  get nameCtrl()    { return this.form.controls.name; }
-  get emailCtrl()   { return this.form.controls.email; }
-  get messageCtrl() { return this.form.controls.message; }
+  get nomeCtrl()     { return this.form.controls.nome; }
+  get empresaCtrl()  { return this.form.controls.empresa; }
+  get emailCtrl()    { return this.form.controls.email; }
+  get telefoneCtrl() { return this.form.controls.telefone; }
+  get mensagemCtrl() { return this.form.controls.mensagem; }
 
   readonly phoneMask: MaskitoOptions = {
     mask: ({ value }) => {
@@ -96,15 +99,15 @@ export class ContatoComponent {
     }
     this.status.set('loading');
     const v = this.form.getRawValue();
-    fetch('/', {
+    fetch('/bat/enviarForm.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams({
-        'form-name': 'contato',
-        name:    v.name,
-        email:   v.email,
-        phone:   v.phone,
-        message: v.message,
+        nome:     v.nome,
+        empresa:  v.empresa,
+        email:    v.email,
+        telefone: v.telefone,
+        mensagem: v.mensagem,
       }).toString(),
     })
       .then(() => {
