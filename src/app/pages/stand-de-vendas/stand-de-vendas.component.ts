@@ -1,12 +1,13 @@
 import { Component, inject, ChangeDetectionStrategy, signal, afterNextRender, viewChild, ElementRef } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { CanonicalService } from '../../core/services/canonical.service';
-import { LucideAngularModule, Phone, CheckCircle2, Clock, Truck, Shield, ChevronDown, Zap, Star } from 'lucide-angular';
+import { LucideAngularModule, Phone, CheckCircle2, Clock, Truck, Shield, ChevronDown, Zap, Star, Instagram } from 'lucide-angular';
+import { BeforeAfterSliderComponent } from '../../core/components/before-after-slider/before-after-slider.component';
 
 @Component({
   selector: 'app-stand-de-vendas',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [LucideAngularModule],
+  imports: [LucideAngularModule, BeforeAfterSliderComponent],
   templateUrl: './stand-de-vendas.component.html'
 })
 export class StandDeVendasComponent {
@@ -23,6 +24,7 @@ export class StandDeVendasComponent {
   readonly ChevronDown    = ChevronDown;
   readonly Zap            = Zap;
   readonly Star           = Star;
+  readonly Instagram      = Instagram;
 
   readonly whatsappUrl = 'https://wa.me/5581991118980?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Stand%20de%20Vendas%20em%20Container.%20Pode%20me%20passar%20um%20or%C3%A7amento%3F';
 
@@ -91,6 +93,13 @@ export class StandDeVendasComponent {
       a: 'Para canteiros com prazo definido, a locação é mais vantajosa: você paga apenas pelo período da obra e devolve sem custo de demolição. Para stands permanentes, a compra pode ser mais econômica a longo prazo.'
     },
   ];
+
+  caseXodo = {
+    beforeImg: '/images/stand-xodo-exterior.webp',
+    afterImg:  '/images/stand-xodo-interior.webp',
+    opImg:     '/images/stand-xodo-operacao.webp',
+    infImg:    '/images/stand-xodo-influencer.webp',
+  };
 
   gallery = [
     { src: '/images/stand-exterior-01.webp', alt: 'Stand de vendas com frente de vidro em obra' },

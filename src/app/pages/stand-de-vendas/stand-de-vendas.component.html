@@ -231,6 +231,128 @@
 </section>
 
 <!-- ══════════════════════════════════════════════════════════════
+     CASE REAL: XODÓ DE MENINO
+     ══════════════════════════════════════════════════════════════ -->
+<section class="py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <!-- Header -->
+    <div class="text-center mb-14">
+      <span class="inline-block bg-bravo-navy text-bravo-yellow text-xs font-black uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">Case Real</span>
+      <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-3 scroll-reveal-heading">
+        Xodó de Menino — Graças, Recife
+      </h2>
+      <p class="text-gray-500 text-lg max-w-2xl mx-auto">
+        Loja de moda bebê masculina 0–2 anos montada em container a poucos metros do Parque das Graças. Do zero ao ponto aberto em <strong class="text-bravo-navy">3 dias</strong>.
+      </p>
+    </div>
+
+    <!-- Before/After + Fotos Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
+
+      <!-- Before/After Slider -->
+      <div class="rounded-2xl overflow-hidden shadow-lg aspect-16/10 lg:aspect-auto lg:h-full">
+        <app-before-after-slider
+          class="h-full"
+          [before]="caseXodo.beforeImg"
+          [after]="caseXodo.afterImg"
+          beforeLabel="Fachada"
+          afterLabel="Interior"
+        />
+      </div>
+
+      <!-- Fotos operação + influencer -->
+      <div class="grid grid-rows-2 gap-6">
+        <div class="rounded-2xl overflow-hidden shadow-lg">
+          <img [src]="caseXodo.opImg"
+               alt="Mãe e bebê sendo atendidos na Xodó de Menino"
+               class="w-full h-full object-cover"
+               loading="lazy">
+        </div>
+        <div class="rounded-2xl overflow-hidden shadow-lg relative">
+          <img [src]="caseXodo.infImg"
+               alt="Bela, influencer @achadinhosda_bela, avaliando roupinha de menino"
+               class="w-full h-full object-cover"
+               loading="lazy">
+          <!-- Badge influencer -->
+          <div class="absolute bottom-3 left-3 flex items-center gap-2 bg-black/70 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            &#64;achadinhosda_bela
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quote + Métricas -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+
+      <!-- Depoimento -->
+      <blockquote class="bg-bravo-navy rounded-2xl p-8 text-white">
+        <div class="text-5xl text-bravo-yellow font-black leading-none mb-4">"</div>
+        <p class="text-white/90 text-lg leading-relaxed mb-6 italic">
+          Precisava de um ponto fixo antes do Dia das Mães. Em 3 dias o container tava pronto, com a minha cara. Dobrei o faturamento naquele mês.
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-bravo-yellow flex items-center justify-center text-bravo-navy font-black text-sm shrink-0">LM</div>
+          <div>
+            <p class="font-bold text-white text-sm">Larissa Melo</p>
+            <p class="text-white/50 text-xs">Fundadora · Xodó de Menino · Graças, Recife</p>
+          </div>
+        </div>
+      </blockquote>
+
+      <!-- Métricas -->
+      <div class="grid grid-cols-2 gap-4">
+        <div class="bg-gray-50 rounded-2xl p-6 text-center border border-gray-100">
+          <p class="text-4xl font-black text-bravo-navy mb-1">3</p>
+          <p class="text-gray-500 text-sm font-semibold">Dias do contrato<br>à abertura</p>
+        </div>
+        <div class="bg-gray-50 rounded-2xl p-6 text-center border border-gray-100">
+          <p class="text-4xl font-black text-bravo-navy mb-1">14m²</p>
+          <p class="text-gray-500 text-sm font-semibold">Container 20 pés<br>totalmente equipado</p>
+        </div>
+        <div class="bg-gray-50 rounded-2xl p-6 text-center border border-gray-100">
+          <p class="text-4xl font-black text-bravo-yellow mb-1">R$0</p>
+          <p class="text-gray-500 text-sm font-semibold">Obra civil<br>necessária</p>
+        </div>
+        <div class="bg-gray-50 rounded-2xl p-6 text-center border border-gray-100">
+          <p class="text-4xl font-black text-bravo-navy mb-1">2×</p>
+          <p class="text-gray-500 text-sm font-semibold">Faturamento no<br>primeiro mês</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Manifesto PE -->
+    <div class="mt-12 rounded-2xl bg-linear-to-r from-[#1E3A5F] via-[#2D5A3D] to-[#C4522A] p-px">
+      <div class="rounded-2xl bg-gray-950 px-6 py-8">
+        <p class="text-center text-xs font-black uppercase tracking-widest text-white/40 mb-6">A identidade da marca</p>
+        <div class="grid grid-cols-3 gap-4 text-center">
+          <div>
+            <span class="text-4xl block mb-2" aria-hidden="true">🦫</span>
+            <p class="text-white font-bold text-sm mb-0.5">Capivara</p>
+            <p class="text-white/40 text-xs leading-snug">Região<br>Metropolitana</p>
+          </div>
+          <div class="border-x border-white/10 px-4">
+            <span class="text-4xl block mb-2" aria-hidden="true">🌵</span>
+            <p class="text-white font-bold text-sm mb-0.5">Cacto</p>
+            <p class="text-white/40 text-xs leading-snug">Sertão<br>Pernambucano</p>
+          </div>
+          <div>
+            <span class="text-4xl block mb-2" aria-hidden="true">🐦</span>
+            <p class="text-white font-bold text-sm mb-0.5">Beija-flor</p>
+            <p class="text-white/40 text-xs leading-snug">Agreste<br>Pernambucano</p>
+          </div>
+        </div>
+        <p class="text-center text-white/25 text-xs mt-6 tracking-wide italic">
+          Xodó de Menino — <strong class="text-white/50 not-italic">Pernambuco inteiro</strong> numa coleção de bebê
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
      FEATURES
      ══════════════════════════════════════════════════════════════ -->
 <section class="py-24 bg-white">
