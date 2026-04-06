@@ -1,0 +1,17 @@
+{
+  "name": "Bravo Equipamentos",
+  "short_name": "Bravo",
+  "description": "Locação e venda de containers em Recife e Pernambuco",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B2246",
+  "theme_color": "#0B2246",
+  "icons": [
+    {
+      "src": "/logos/simbolo-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

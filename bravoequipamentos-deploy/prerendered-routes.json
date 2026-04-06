@@ -1,0 +1,10 @@
+{
+  "routes": {
+    "/": {},
+    "/clientes": {},
+    "/containers": {},
+    "/fale-conosco": {},
+    "/sobre-a-bravo": {},
+    "/stand-de-vendas": {}
+  }
+}
