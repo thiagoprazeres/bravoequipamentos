@@ -73,7 +73,7 @@ export class HomeComponent {
   readonly parallaxOffset = signal(0);
 
   stats = [
-    { value: '10+',  label: 'Anos de Experiência', countEnd: 10,  countSuffix: '+' },
+    { value: '15+',  label: 'Anos de Experiência', countEnd: 15,  countSuffix: '+' },
     { value: '500+', label: 'Projetos Entregues',   countEnd: 500, countSuffix: '+' },
     { value: '100%', label: 'Taxa de Satisfação',   countEnd: 100, countSuffix: '%' },
     { value: '24h',  label: 'Tempo de Resposta',    countEnd: 24,  countSuffix: 'h' },
@@ -119,7 +119,7 @@ export class HomeComponent {
     {
       icon: 'users',
       title: 'Equipe Especializada',
-      description: 'Profissionais técnicos com mais de 10 anos de experiência prontos para orientar seu projeto.'
+      description: 'Profissionais técnicos com mais de 15 anos de experiência prontos para orientar seu projeto.'
     }
   ];
 

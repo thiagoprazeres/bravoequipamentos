@@ -26,7 +26,7 @@ export class StandDeVendasComponent {
   readonly Star           = Star;
   readonly Instagram      = Instagram;
 
-  readonly whatsappUrl = 'https://wa.me/5581991118980?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Stand%20de%20Vendas%20em%20Container.%20Pode%20me%20passar%20um%20or%C3%A7amento%3F';
+  readonly whatsappUrl = 'https://wa.me/5581986430000?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Stand%20de%20Vendas%20em%20Container.%20Pode%20me%20passar%20um%20or%C3%A7amento%3F';
 
   openFaq = signal<number | null>(null);
 

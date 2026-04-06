@@ -83,8 +83,9 @@ export class ContatoComponent {
 
   readonly contactInfo = {
     email: 'contato@bravoequipamentos.com',
-    phone: '(81) 9 9111-8980',
-    whatsappUrl: 'https://wa.me/5581991118980?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20loca%C3%A7%C3%A3o%20de%20containers.',
+    phone: '(81) 3479-9009',
+    phone2: '(81) 98643-0000',
+    whatsappUrl: 'https://wa.me/5581986430000?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20loca%C3%A7%C3%A3o%20de%20containers.',
     address: 'R. Mata Grande, 151 — Prazeres, Jaboatão dos Guararapes / PE',
     hours: 'Segunda a Sexta: 8h às 18h',
     mapsUrl: 'https://maps.app.goo.gl/6B4oUBWYiBHz9Nsn7',

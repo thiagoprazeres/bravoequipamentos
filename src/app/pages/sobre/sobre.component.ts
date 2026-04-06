@@ -18,9 +18,9 @@ export class SobreComponent {
   constructor() {
     this.canonical.set('https://bravoequipamentos.com/sobre-a-bravo');
     this.title.setTitle('Sobre Nós | Bravo Equipamentos');
-    this.meta.updateTag({ name: 'description', content: 'Há mais de 10 anos fornecendo containers de qualidade em Pernambuco. Conheça a história e os valores da Bravo Equipamentos.' });
+    this.meta.updateTag({ name: 'description', content: 'Há mais de 15 anos fornecendo containers de qualidade na Região Metropolitana do Recife. Conheça a história e os valores da Bravo Equipamentos.' });
     this.meta.updateTag({ property: 'og:title', content: 'Sobre Nós | Bravo Equipamentos' });
-    this.meta.updateTag({ property: 'og:description', content: 'Há mais de 10 anos fornecendo containers de qualidade em Pernambuco.' });
+    this.meta.updateTag({ property: 'og:description', content: 'Há mais de 15 anos fornecendo containers de qualidade na Região Metropolitana do Recife.' });
     this.meta.updateTag({ property: 'og:url',   content: 'https://bravoequipamentos.com/sobre-a-bravo' });
     this.meta.updateTag({ property: 'og:image', content: 'https://bravoequipamentos.com/images/BR-stand-de-vendas.webp' });
 
@@ -34,7 +34,7 @@ export class SobreComponent {
   readonly Eye = Eye;
   features = [
     {
-      title: 'Mais de 10 anos de experiência',
+      title: 'Mais de 15 anos de experiência',
       description: 'Atuando no mercado desde 2011, oferecendo soluções em locação de containers e equipamentos para obras.'
     },
     {

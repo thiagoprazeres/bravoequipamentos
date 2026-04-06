@@ -5,7 +5,7 @@ export const routes: Routes = [
     path: '',
     title: 'Bravo Equipamentos | Containers em Recife e Nordeste',
     data: {
-      description: 'Locação e venda de containers em Recife e Pernambuco. Escritórios, almoxarifados, banheiros, vestiários e stands de vendas. Atendemos toda a Região Metropolitana e o Nordeste. Orçamento grátis!',
+      description: 'Locação e venda de containers em Recife e Região Metropolitana. Escritórios, almoxarifados, banheiros, vestiários e stands de vendas. Atendemos PE, AL, PB e RN. Orçamento grátis!',
       ogUrl: 'https://bravoequipamentos.com/'
     },
     loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent)
@@ -14,7 +14,7 @@ export const routes: Routes = [
     path: 'sobre-a-bravo',
     title: 'Sobre a Bravo | Containers em Recife desde 2010',
     data: {
-      description: 'Conheça a Bravo Equipamentos: mais de uma década locando e vendendo containers em Recife e Pernambuco. Qualidade, agilidade e suporte completo para sua obra.',
+      description: 'Conheça a Bravo Equipamentos: mais de 15 anos locando e vendendo containers em Recife e Região Metropolitana. Qualidade, agilidade e suporte completo para sua obra.',
       ogUrl: 'https://bravoequipamentos.com/sobre-a-bravo'
     },
     loadComponent: () => import('./pages/sobre/sobre.component').then(m => m.SobreComponent)
@@ -32,7 +32,7 @@ export const routes: Routes = [
     path: 'clientes',
     title: 'Clientes | Bravo Equipamentos — Cases de Sucesso',
     data: {
-      description: 'Construtoras, incorporadoras e empresas de todo o Nordeste confiam na Bravo Equipamentos para locação de containers. Veja nossos cases de sucesso.',
+      description: 'Mais de 800 clientes de construção, indústria e governo em PE, AL, PB e RN confiam na Bravo Equipamentos. Veja nossos cases de sucesso.',
       ogUrl: 'https://bravoequipamentos.com/clientes'
     },
     loadComponent: () => import('./pages/clientes/clientes.component').then(m => m.ClientesComponent)
