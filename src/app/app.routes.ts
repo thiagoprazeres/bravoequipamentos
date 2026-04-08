@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    title: 'Bravo Equipamentos | Containers em Recife e Nordeste',
+    title: 'Bravo Equipamentos | Containers em Recife e Região Metropolitana',
     data: {
       description: 'Locação e venda de containers em Recife e Região Metropolitana. Escritórios, almoxarifados, banheiros, vestiários e stands de vendas. Atendemos PE, AL, PB e RN. Orçamento grátis!',
       ogUrl: 'https://bravoequipamentos.com/'
